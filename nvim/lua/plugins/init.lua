@@ -1,0 +1,16 @@
+require "plugins.plugins-setup"
+require "plugins.nvim-tree"
+require "plugins.lualine"
+require "plugins.treesitter"
+require "plugins.cmp"
+require "plugins.comment"
+require "plugins.autopairs"
+require "plugins.bufferline"
+require "plugins.gitsigns"
+require "plugins.telescope"
+require "plugins.toggleterm"
+require 'plugins.project'
+require 'plugins.indentline'
+require 'plugins.alpha'
+require 'plugins.whichkey'
+require 'plugins.autocommands'
