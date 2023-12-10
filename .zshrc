@@ -156,10 +156,14 @@ alias po='yay -Qtdq | yay -Rns -' # remove unused packages, also try > yay -Qqd 
 alias vc='code' # gui code editor
 alias gvim='neovide'
 alias v='${EDIT}'
-alias vim='${EDIT}'
 alias confnvim='${EDIT} ~/.config/nvim'
 alias docker='sudo docker'
-export PATH=/home/carl/.local/bin:$PATH
+alias px='proxychains'
+
+export PATH=/home/carl/.local/bin:$PATH:/opt/cuda/bin${PATH:+:${PATH}}
+
+export JDTLS_JVM_ARGS="-javaagent:$HOME/Workspace/java/env/lombook/lombok.jar"
+
 #To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
@@ -177,4 +181,6 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-
+export PATH=/opt/cuda/bin${PATH:+:${PATH}}
+export LD_LIBRARY_PATH=/opt/cuda/lib64:${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+export MAKEFLAGS="-j$(nproc)"

@@ -17,7 +17,7 @@ o.splitbelow = true                       -- force all horizontal splits to go b
 o.splitright = true                       -- force all vertical splits to go to the right of current window,垂直分割强制在右方
 o.swapfile = false                        -- creates a swapfile
 o.termguicolors = true                    -- set term gui colors (most terminals support this)
-o.timeoutlen = 1000                        -- time to wait for a mapped sequence to complete (in milliseconds)
+o.timeoutlen = 300                        -- time to wait for a mapped sequence to complete (in milliseconds)
 o.undofile = true                         -- enable persistent undo,启动永久撤销
 o.updatetime = 300                        -- faster completion (4000ms default)
 o.writebackup = false                     -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited,允许两个程序同时编辑
@@ -44,7 +44,9 @@ o.mousemoveevent = true
 --[[ end ]]
 --[[]]
 -- vim.opt.shortmess = "ilmnrx"                        -- flags to shorten vim messages, see :help 'shortmess',缩短Vim消息
-vim.opt.shortmess:append "c"                           -- don't give |ins-completion-menu| messages
-vim.opt.iskeyword:append "-"                           -- hyphenated words recognized by searches
-vim.opt.formatoptions:remove({ "c", "r", "o" })        -- don't insert the current comment leader automatically for auto-wrapping comments using 'textwidth', hitting <Enter> in insert mode, or hitting 'o' or 'O' in normal mode.
-vim.opt.runtimepath:remove("/usr/share/vim/vimfiles")  -- separate vim plugins from neovim in case vim still in use
+o.shortmess:append "c"                           -- don't give |ins-completion-menu| messages
+o.iskeyword:append "-"                           -- hyphenated words recognized by searches
+o.formatoptions:remove({ "c", "r", "o" })        -- don't insert the current comment leader automatically for auto-wrapping comments using 'textwidth', hitting <Enter> in insert mode, or hitting 'o' or 'O' in normal mode.
+o.runtimepath:remove("/usr/share/vim/vimfiles")  -- separate vim plugins from neovim in case vim still in use
+o.timeout = true
+o.wildmenu = true

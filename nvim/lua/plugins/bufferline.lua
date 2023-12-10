@@ -33,7 +33,7 @@ bufferline.setup({
 		max_name_length = 30,
 		max_prefix_length = 30, -- prefix used when a buffer is de-duplicated
 		tab_size = 21,
-		diagnostics = false, -- | "nvim_lsp" | "coc" | false,
+		diagnostics = nvim_lsp, -- | "nvim_lsp" | "coc" | false,
 		diagnostics_update_in_insert = false,
 		-- diagnostics_indicator = function(count, level, diagnostics_dict, context)
 		--   return "("..count..")"

@@ -11,7 +11,6 @@ cargo
 ripgrep
 optional:
 
-
 ```
 
 ```
@@ -75,4 +74,52 @@ telescope
 git
 ```
 Gitsigns preview_hunk
+```
+
+```
+nvim
+├── doc 文档
+│  └── plugins.md 插件简介
+├── init.lua
+├── lazy-lock.json
+├── lua
+│  ├── core
+│  │  ├── init.lua
+│  │  ├── keymaps.lua 所有快捷键
+│  │  └── options.lua 基础配置
+│  ├── lsp
+│  │  ├── handlers.lua
+│  │  ├── init.lua
+│  │  ├── mason.lua
+│  │  ├── null-ls.lua
+│  │  └── setting
+│  │     ├── jsonls.lua
+│  │     └── pyright.lua
+│  ├── plugins
+│  │  ├── alpha.lua
+│  │  ├── autocommands.lua
+│  │  ├── autopairs.lua
+│  │  ├── bufferline.lua
+│  │  ├── cmp.lua
+│  │  ├── comment.lua
+│  │  ├── gitsigns.lua
+│  │  ├── indentline.lua
+│  │  ├── init.lua
+│  │  ├── lualine.lua
+│  │  ├── nvim-tree.lua
+│  │  ├── plugins-setup.lua
+│  │  ├── project.lua
+│  │  ├── telescope.lua
+│  │  ├── toggleterm.lua
+│  │  ├── treesitter.lua
+│  │  └── whichkey.lua
+│  └── themes
+│     ├── darkplus.lua
+│     ├── init.lua
+│     ├── test.lua
+│     └── tokyonight.lua
+├── package-lock.json
+├── package.json
+└── README.md
+
 ```

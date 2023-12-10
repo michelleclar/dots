@@ -24,7 +24,7 @@ keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
-keymap("n","<leader>nh",":nohl<CR>")
+--[[ keymap("n","<leader>nh",":nohl<CR>") ]]
 keymap("n","<leader>sh","<C-w>s>") -- 垂直新增窗口 vertical
 keymap("n","<leader>sv","<C-w>v>") -- 水平新增窗口 Horizontal 
 -- Resize with arrows
@@ -48,6 +48,8 @@ keymap("n", "<A-k>", ":m .-2<CR>==", opts)
 -- Press jk fast to exit insert mode 
 keymap("i", "jk", "<ESC>", opts)
 keymap("i", "kj", "<ESC>", opts)
+keymap("i", "<A-h>", "<ESC>I", opts)
+keymap("i", "<A-l>", "<ESC>A", opts)
 -- Visual --
 -- Stay in indent mode
 keymap("v", "<", "<gv^", opts)
@@ -77,3 +79,4 @@ keymap("n", "<leader>ff", "<cmd>lua require'telescope.builtin'.find_files(requir
 keymap("n", "<c-t>", "<cmd>Telescope live_grep<cr>", opts) -- 查找文本
 keymap('n', '<leader>fb', "<cmd>Telescope buffers<cr>", opts) -- 查找已经打开的文档
 keymap('n', '<leader>fh', "<cmd>Telescope help_tags<cr>", opts) -- 查找帮助文档
+keymap('n', '<A-q>',"<cmd>Bdelete!<CR>",opts)
