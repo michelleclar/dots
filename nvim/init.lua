@@ -3,7 +3,7 @@ require("plugins")
 -- lsp
 require("lsp")
 -- core keymap optional
-require "core"
+require("core")
 -- theme
 require("themes")
 -- this is fix ruby_host_prog

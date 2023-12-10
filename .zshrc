@@ -160,7 +160,7 @@ alias confnvim='${EDIT} ~/.config/nvim'
 alias docker='sudo docker'
 alias px='proxychains'
 
-export PATH=/home/carl/.local/bin:$PATH:/opt/cuda/bin${PATH:+:${PATH}}
+export PATH=/home/carl/.local/bin:$PATH:/opt/cuda/bin${PATH:+:${PATH}}:/home/carl/.cargo/bin
 
 export JDTLS_JVM_ARGS="-javaagent:$HOME/Workspace/java/env/lombook/lombok.jar"
 
