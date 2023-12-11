@@ -1,4 +1,5 @@
 local servers = {
+
 	"lua_ls",
 	-- "cssls",
 	-- "html",
@@ -6,15 +7,14 @@ local servers = {
 	"pyright",
 	-- "bashls",
 	"jsonls",
-  "marksman",
-  "jdtls",
+	"marksman",
+	"jdtls",
 	-- "yamlls",
 }
 
-
 for name, server in pairs(servers) do
-  print('before:' .. server)
-  print('name:' .. name)
+	print("before:" .. server)
+	print("name:" .. name)
 	--[[ server = vim.split(server, "@")[1] ]]
- --[[  print('after' .. server) ]]
+	--[[  print('after' .. server) ]]
 end

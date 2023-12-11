@@ -1,8 +1,10 @@
 ### nvim
+
 dependencies
+
 ```
 must:
-neovide 
+neovide
 node
 unzip
 python3
@@ -19,16 +21,20 @@ help options -- 一些环境参数
 
 :Lexplore --打开文件树
 ```
+
 ```
 live_grep (pacman -S ripgrep)
 fd (pacman -S fd)
 tree-sitter (npm install tree-sitter-cli or cargo)
 anaconda (pacman -S anaconda conda init pip install neovim greenley pynvim,if ERROR http(conda remove curl))
 ```
+
 ```
 block
 ```
-completion 
+
+completion
+
 ```lua
 if add language -- https://github.com/topics/nvim-cmp
 first add plugins
@@ -40,8 +46,8 @@ then add sources
   "hrsh7th/cmp-path", -- 文件路径
   "hrsh7th/cmp-cmdline", -- cmdline
   "saadparwaiz1/cmp_luasnip", -- snippet engine
-  "hrsh7th/cmp-nvim-lsp", 
-  "hrsh7th/cmp-nvim-lua",  -- lua 提示 vim 
+  "hrsh7th/cmp-nvim-lsp",
+  "hrsh7th/cmp-nvim-lua",  -- lua 提示 vim
 
   "L3MON4D3/LuaSnip", -- snippets引擎，代码片段不装这个自动补全会出问题
   "rafamadriz/friendly-snippets",
@@ -55,12 +61,16 @@ then add sources
     { name = "path" },
   },
 ```
+
 lsp
+
 ```
 
 ```
+
 > null-ls:需要先在cli验证cmd
-telescope
+> telescope
+
 ```text
 [nvim-telescope/telescope-media-files.nvim](https://github.com/nvim-telescope/telescope-media-files.nvim)
 [Chafa](https://hpjansson.org/chafa/) (图片预览pacman -S Chafa)
@@ -72,6 +82,7 @@ telescope
 ```
 
 git
+
 ```
 Gitsigns preview_hunk
 ```
