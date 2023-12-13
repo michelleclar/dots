@@ -84,7 +84,7 @@ keymap(
 keymap("n", "<c-t>", "<cmd>Telescope live_grep<cr>", opts) -- 查找文本
 keymap("n", "<leader>fb", "<cmd>Telescope buffers<cr>", opts) -- 查找已经打开的文档
 keymap("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", opts) -- 查找帮助文档
-keymap("n", "<A-q>", "<cmd>Bdelete!<CR>", opts)
+keymap("n", "<A-q>", "<cmd>lua require('util').delete_buffer()<cr>", opts)
 
 keymap("", "<leader>uD", require("lsp_lines").toggle, { desc = "Toggle lsp_lines" })
 -- Lua

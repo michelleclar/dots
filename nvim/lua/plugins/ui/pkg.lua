@@ -10,13 +10,16 @@ M.plugins_list = {
 		--[[ }, ]]
 	}, -- buffer分割线
 
-	"moll/vim-bbye",
+	-- "moll/vim-bbye",
 	"LudoPinelli/comment-box.nvim",
 	"lewis6991/gitsigns.nvim", -- 左则git提示
 	"rebelot/heirline.nvim",
 	"lukas-reineke/indent-blankline.nvim", --code line effect for while
 	"nvim-lualine/lualine.nvim", -- 状态栏
 	"SmiteshP/nvim-navic",
+
+	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+	"onsails/lspkind-nvim",
 }
 -- local heirline = require 'plugins.ui.heirline'
 -- table.insert(M.plugins_list,heirline)
