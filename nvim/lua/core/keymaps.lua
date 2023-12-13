@@ -25,11 +25,11 @@ keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 --[[ keymap("n","<leader>nh",":nohl<CR>") ]]
-keymap("n","<leader>sh","<C-w>s>") -- 垂直新增窗口 vertical
-keymap("n","<leader>sv","<C-w>v>") -- 水平新增窗口 Horizontal 
+keymap("n", "<leader>sh", "<C-w>s>") -- 垂直新增窗口 vertical
+keymap("n", "<leader>sv", "<C-w>v>") -- 水平新增窗口 Horizontal
 -- Resize with arrows
 -- keymap("n", "<leader>e",":lex 30<cr>",opts)
-keymap("n","<leader>nh",":nohl<CR>")
+keymap("n", "<leader>nh", ":nohl<CR>")
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
 keymap("n", "<C-Down>", ":resize +2<CR>", opts)
@@ -45,7 +45,7 @@ keymap("n", "<A-j>", ":m .+1<CR>==", opts)
 keymap("n", "<A-k>", ":m .-2<CR>==", opts)
 
 -- Insert --
--- Press jk fast to exit insert mode 
+-- Press jk fast to exit insert mode
 keymap("i", "jk", "<ESC>", opts)
 keymap("i", "kj", "<ESC>", opts)
 keymap("i", "<A-h>", "<ESC>I", opts)
@@ -74,9 +74,23 @@ keymap("x", "<A-k>", ":m '<-2<CR>gv=gv", opts)
 -- keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 -- keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 -- plugins --
-keymap("n","<leader>e", ":NvimTreeToggle<CR>") -- 打开文件树
-keymap("n", "<leader>ff", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts) -- 查找文件
+keymap("n", "<leader>e", ":NvimTreeToggle<CR>") -- 打开文件树
+keymap(
+	"n",
+	"<leader>ff",
+	"<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>",
+	opts
+) -- 查找文件
 keymap("n", "<c-t>", "<cmd>Telescope live_grep<cr>", opts) -- 查找文本
-keymap('n', '<leader>fb', "<cmd>Telescope buffers<cr>", opts) -- 查找已经打开的文档
-keymap('n', '<leader>fh', "<cmd>Telescope help_tags<cr>", opts) -- 查找帮助文档
-keymap('n', '<A-q>',"<cmd>Bdelete!<CR>",opts)
+keymap("n", "<leader>fb", "<cmd>Telescope buffers<cr>", opts) -- 查找已经打开的文档
+keymap("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", opts) -- 查找帮助文档
+keymap("n", "<A-q>", "<cmd>Bdelete!<CR>", opts)
+
+keymap("", "<leader>uD", require("lsp_lines").toggle, { desc = "Toggle lsp_lines" })
+-- Lua
+--[[ vim.keymap.set("n", "<leader>xx", function() require("trouble").toggle() end) ]]
+--[[ vim.keymap.set("n", "<leader>xw", function() require("trouble").toggle("workspace_diagnostics") end) ]]
+--[[ vim.keymap.set("n", "<leader>xd", function() require("trouble").toggle("document_diagnostics") end) ]]
+--[[ vim.keymap.set("n", "<leader>xq", function() require("trouble").toggle("quickfix") end) ]]
+--[[ vim.keymap.set("n", "<leader>xl", function() require("trouble").toggle("loclist") end) ]]
+--[[ vim.keymap.set("n", "gR", function() require("trouble").toggle("lsp_references") end) ]]

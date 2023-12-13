@@ -1,0 +1,1 @@
+require 'plugins.diagnostics.trouble'

@@ -1,7 +1,5 @@
 -- 插件
 require("plugins")
--- lsp
-require("lsp")
 -- core keymap optional
 require("core")
 -- theme

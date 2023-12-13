@@ -1,0 +1,5 @@
+require 'plugins.expand.autocommands'
+require 'plugins.expand.project'
+require 'plugins.expand.treesitter'
+require 'plugins.expand.whichkey'
+require 'plugins.expand.comment'
