@@ -178,6 +178,7 @@ local mappings = {
 		C = { "<cmd>Telescope commands<cr>", "Commands" },
 		X = { "<cmd>TroubleToggle workspace_diagnostics<cr>", "Workspace Diagnostics (Trouble)" },
 		x = { "<cmd>TroubleToggle document_diagnostics<cr>", "Document Diagnostics (Trouble)" },
+    o = {"<cmd>lua require 'harpoon.ui'.toggle_quick_menu()", 'show file list by your mark'}
 	},
 
 	t = {

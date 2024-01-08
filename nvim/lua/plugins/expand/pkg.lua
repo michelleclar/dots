@@ -43,6 +43,7 @@ M.plugins_list = {
 		end,
 	},
 	{ "echasnovski/mini.nvim", version = "*" },
+	"ThePrimeagen/harpoon", -- bookmark
 	--[[ { ]]
 	--[[ 	"iamcco/markdown-preview.nvim", ]]
 	--[[ 	cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" }, ]]

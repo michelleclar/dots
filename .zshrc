@@ -157,7 +157,7 @@ alias vc='code' # gui code editor
 alias gvim='neovide'
 alias v='${EDIT}'
 alias confnvim='${EDIT} ~/.config/nvim'
-alias docker='sudo docker'
+# alias docker='sudo docker'
 alias px='proxychains'
 
 export PATH=/home/carl/.local/bin:$PATH:/opt/cuda/bin${PATH:+:${PATH}}:/home/carl/.cargo/bin

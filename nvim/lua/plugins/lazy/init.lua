@@ -22,7 +22,8 @@ local plugins = {
 	--[[ "saadparwaiz1/cmp_luasnip", -- snippet engine ]]
 	-- git
 	"kdheepak/lazygit.nvim",
-	'nvim-lua/lsp-status.nvim',
+	"nvim-lua/lsp-status.nvim",
+	{ "folke/neodev.nvim", opts = {} },
 }
 local components = {
 	"cmp",

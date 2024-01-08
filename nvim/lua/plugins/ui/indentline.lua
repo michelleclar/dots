@@ -24,5 +24,56 @@ end
 --[[     vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#56B6C2" }) ]]
 --[[ end) ]]
 --[[]]
-ibl.setup()
+local opts = {
+
+	indent = {
+		char = { "", "┊", "┆", "¦", "|", "¦", "┆", "┊", "" },
+	},
+	exclude = {
+		buftypes = { "terminal", "nofile" },
+		filetypes = {
+			"alpha",
+			"log",
+			"gitcommit",
+			"dapui_scopes",
+			"dapui_stacks",
+			"dapui_watches",
+			"dapui_breakpoints",
+			"dapui_hover",
+			"LuaTree",
+			"dbui",
+			"UltestSummary",
+			"UltestOutput",
+			"vimwiki",
+			"markdown",
+			"json",
+			"txt",
+			"vista",
+			"NvimTree",
+			"git",
+			"TelescopePrompt",
+			"undotree",
+			"flutterToolsOutline",
+			"org",
+			"orgagenda",
+			"help",
+			"startify",
+			"dashboard",
+			"lazy",
+			"neogitstatus",
+			"Outline",
+			"Trouble",
+			"lspinfo",
+			"", -- for all buffers without a file type
+		},
+	},
+	scope = {
+		enabled = true,
+		show_start = false,
+	},
+}
+ibl.setup(opts)
+
+local hooks = require("ibl.hooks")
+hooks.register(hooks.type.WHITESPACE, hooks.builtin.hide_first_tab_indent_level)
 --[[ ibl.setup { indent = { highlight = highlight } } ]]

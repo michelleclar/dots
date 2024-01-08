@@ -189,20 +189,21 @@ local Options = {
 		end,
 	},
 }
-local Highlights = {
-
-	background = { italic = true },
-	buffer_selected = { bold = true },
-	fill = {
-		bg = {
-			attribute = "bg",
-			highlight = "NormalNC",
-		},
-	},
-
-}
+-- local Highlights = {
+--
+-- 	background = { italic = true },
+-- 	buffer_selected = { bold = true },
+-- 	fill = {
+-- 		bg = {
+-- 			attribute = "bg",
+-- 			highlight = "NormalNC",
+-- 		},
+-- 	},
+--
+-- }
 local config = {
 	options = Options,
-	highlights = Highlights,
+	-- highlights = Highlights,
+ highlights = require("catppuccin.groups.integrations.bufferline").get()
 }
 bufferline.setup(config)

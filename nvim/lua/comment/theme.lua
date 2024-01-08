@@ -262,6 +262,8 @@ M.catppuccin = function()
   --   }
   -- end
   catppuccin.setup(opts)
+
+	vim.cmd.colorscheme("catppuccin")
 end
 
 M.kanagawa = function()

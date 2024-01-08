@@ -9,5 +9,9 @@ M.plugins_list = {
 		"jose-elias-alvarez/null-ls.nvim", -- for formatters and linters
 		"RRethy/vim-illuminate",
 	},
+	{
+		"ray-x/lsp_signature.nvim",
+		event = "VeryLazy",
+	},
 }
 return M
