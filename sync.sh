@@ -1,3 +1,18 @@
+rm -rf hypr
+rm -rf kitty
+rm -rf neofetch
+rm -rf nvim
+rm -rf rofi
+rm -rf swappy
+rm -rf swaylock
+rm -rf swww
+rm -rf waybar
+rm -rf wlogout
+rm -rf .zshrc
+rm -rf .vimrc
+rm -rf .zimrc
+rm -rf .ideavimrc
+
 cp -r ~/.config/hypr .
 cp -r ~/.config/kitty .
 cp -r ~/.config/neofetch .
