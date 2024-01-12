@@ -70,7 +70,6 @@ lsp
 
 > null-ls:需要先在cli验证cmd
 > telescope
-
 ```text
 [nvim-telescope/telescope-media-files.nvim](https://github.com/nvim-telescope/telescope-media-files.nvim)
 [Chafa](https://hpjansson.org/chafa/) (图片预览pacman -S Chafa)

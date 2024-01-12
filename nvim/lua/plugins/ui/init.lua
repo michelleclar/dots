@@ -12,3 +12,5 @@ require 'plugins.ui.lualine'
 require 'comment.theme'.catppuccin()
 require 'plugins.ui.incline'
 require (s .. 'colorizer')
+require(s .. 'fidget')
+require(s .. 'sumbols_outline')

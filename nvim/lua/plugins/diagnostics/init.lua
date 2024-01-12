@@ -1,1 +1,1 @@
-require 'plugins.diagnostics.trouble'
+-- require 'plugins.diagnostics.trouble'

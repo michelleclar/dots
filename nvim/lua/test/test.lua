@@ -17,4 +17,10 @@ M.run = function()
 	vim.tbl_deep_extend("force", M, _M)
   M.print()
 end
+
+M.home = function ()
+
+  local s = vim.env.HOME .. "/.vale.ini"
+  print(s)
+end
 return M

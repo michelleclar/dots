@@ -86,7 +86,6 @@ keymap("n", "<leader>fb", "<cmd>Telescope buffers<cr>", opts) -- 查找已经打
 keymap("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", opts) -- 查找帮助文档
 keymap("n", "<A-q>", "<cmd>lua require('util').delete_buffer()<cr>", opts)
 
-keymap("", "<leader>uD", require("lsp_lines").toggle, { desc = "Toggle lsp_lines" })
 -- Lua
 --[[ vim.keymap.set("n", "<leader>xx", function() require("trouble").toggle() end) ]]
 --[[ vim.keymap.set("n", "<leader>xw", function() require("trouble").toggle("workspace_diagnostics") end) ]]
