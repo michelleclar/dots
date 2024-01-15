@@ -1,6 +1,18 @@
 local M = {}
 
 M.plugins_list = {
-	"akinsho/toggleterm.nvim", -- 浮动终端
+
+{
+    "akinsho/toggleterm.nvim",
+    branch = "main",
+    cmd = {
+      "ToggleTerm",
+      "TermExec",
+      "ToggleTermToggleAll",
+      "ToggleTermSendCurrentLine",
+      "ToggleTermSendVisualLines",
+      "ToggleTermSendVisualSelection",
+    },
+  },
 }
 return M

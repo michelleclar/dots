@@ -1,40 +1,65 @@
-local opts = {
-	on_attach = function(client, bufnr)
-		-- 禁用格式化功能，交给专门插件插件处理
-		client.resolved_capabilities.document_formatting = false
-		client.resolved_capabilities.document_range_formatting = false
-	end,
-	on_init = function(client)
-		local path = client.workspace_folders[1].name
-		if not vim.loop.fs_stat(path .. "/.luarc.json") and not vim.loop.fs_stat(path .. "/.luarc.jsonc") then
-			client.config.settings = vim.tbl_deep_extend("force", client.config.settings, {
-				Lua = {
-					runtime = {
-						-- Tell the language server which version of Lua you're using
-						-- (most likely LuaJIT in the case of Neovim)
-						version = "LuaJIT",
-					},
-					diagnostics = {
-						-- Get the language server to recognize the `vim` global
-						globals = { "vim", "quarto", "pandoc", "io", "string", "print", "require", "table" },
-						disable = { "trailing-space" },
-					},
-					-- Make the server aware of Neovim runtime files
-					workspace = {
-						checkThirdParty = false,
-						library = {
-							vim.env.VIMRUNTIME,
-						},
-					},
-					telemetry = {
-						enable = false,
-					},
-				},
-			})
+local default_workspace = {
+  library = {
+    -- vim.fn.expand "$VIMRUNTIME",
+    vim.env.VIMRUNTIME,
+    -- get_lvim_base_dir(),
+    require("neodev.config").types(),
+    "${3rd}/busted/library",
+    "${3rd}/luassert/library",
+    "${3rd}/luv/library",
+  },
 
-			client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
-		end
-		return true
-	end,
+  maxPreload = 5000,
+  preloadFileSize = 10000,
 }
+
+local add_packages_to_workspace = function(packages, config)
+  -- config.settings.Lua = config.settings.Lua or { workspace = default_workspace }
+  local runtimedirs = vim.api.nvim__get_runtime({ "lua" }, true, { is_lua = true })
+  local workspace = config.settings.Lua.workspace
+  for _, v in pairs(runtimedirs) do
+    for _, pack in ipairs(packages) do
+      if v:match(pack) and not vim.tbl_contains(workspace.library, v) then
+        table.insert(workspace.library, v)
+      end
+    end
+  end
+end
+
+local lspconfig = require "lspconfig"
+
+local make_on_new_config = function(on_new_config, _)
+  return lspconfig.util.add_hook_before(on_new_config, function(new_config, _)
+    local server_name = new_config.name
+
+    if server_name ~= "lua_ls" then
+      return
+    end
+    local plugins = { "plenary.nvim", "telescope.nvim", "nvim-treesitter", "LuaSnip" }
+    add_packages_to_workspace(plugins, new_config)
+  end)
+end
+
+lspconfig.util.default_config = vim.tbl_extend("force", lspconfig.util.default_config, {
+  on_new_config = make_on_new_config(lspconfig.util.default_config.on_new_config),
+})
+
+local opts = {
+  settings = {
+    Lua = {
+      telemetry = { enable = false },
+      runtime = {
+        version = "LuaJIT",
+        special = {
+          reload = "require",
+        },
+      },
+      diagnostics = {
+        globals = { "vim", "lvim", "reload" },
+      },
+      workspace = default_workspace,
+    },
+  },
+}
+
 return opts

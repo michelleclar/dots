@@ -2,20 +2,55 @@ local M = {}
 
 M.plugins_list = {
 
-  "numToStr/Comment.nvim", -- gcc和gc注释
-
-  "JoosepAlviste/nvim-ts-context-commentstring",
-
-  "ahmedkhalf/project.nvim", -- project mananger
+  {
+    "numToStr/Comment.nvim",
+    config = function()
+      require("plugins.expand.comment").config()
+    end,
+    event = "User FileOpened",
+  }, -- 快速注释
+  {
+    -- Lazy loaded by Comment.nvim pre_hook
+    "JoosepAlviste/nvim-ts-context-commentstring",
+    lazy = true,
+  },
+  {
+    "ahmedkhalf/project.nvim",
+    config = function()
+      require("plugins.expand.project").config()
+    end,
+    event = "VimEnter",
+    cmd = "Telescope projects",
+  },
   {
     "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
+    config = function()
+      require("plugins.expand.treesitter").config()
+    end,
+    -- build = ":TSUpdate",
     dependencies = {
       "p00f/nvim-ts-rainbow", -- 配合treesitter，不同括号颜色区分
     },
-  },                          -- 语法高亮
+    cmd = {
+      "TSInstall",
+      "TSUninstall",
+      "TSUpdate",
+      "TSUpdateSync",
+      "TSInstallInfo",
+      "TSInstallSync",
+      "TSInstallFromGrammar",
+    },
+    event = "User FileOpened",
+  }, -- 语法高亮
 
-  "folke/which-key.nvim",     -- key tip
+  {
+    "folke/which-key.nvim",
+    config = function()
+      require("plugins.expand.whichkey").config()
+    end,
+    cmd = "WhichKey",
+    event = "VeryLazy",
+  }, -- key tip
 
   {
     "gbprod/cutlass.nvim",
@@ -42,13 +77,27 @@ M.plugins_list = {
       require("im_select").setup({})
     end,
   },
-  { "echasnovski/mini.nvim", version = "*" },
-  "ThePrimeagen/harpoon", -- bookmark
+  -- { "echasnovski/mini.nvim", version = "*" },
+  {
+    "ThePrimeagen/harpoon",
+    dependencies = {
+      { "plenary.nvim" },
+      { "nvim-lua/popup.nvim" },
+    },
+  }, -- bookmark
   {
     "folke/todo-comments.nvim",
-  }, -- 标签
+    config = function()
+      require("plugins.expand.todo-comments").config()
+    end,
+    dependencies = "plenary.nvim",
+    event = "BufRead",
+  },
   {
     "phaazon/hop.nvim",
+    config = function()
+      require("plugins.expand.hop").config()
+    end,
     event = "VeryLazy",
     cmd = { "HopChar1CurrentLineAC", "HopChar1CurrentLineBC", "HopChar2MW", "HopWordMW" },
   }, -- more cursor

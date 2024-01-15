@@ -1,18 +1,29 @@
 local M = {}
 
 M.plugins_list = {
-  "goolord/alpha-nvim", -- 简介
+  {
+    "goolord/alpha-nvim",
+    event = "VimEnter"
+  }, -- 简介
   -- buffer
   {
     "akinsho/bufferline.nvim",
     --[[ dependencies = { ]]
     --[[ 	"moll/vim-bbye", ]]
     --[[ }, ]]
+    event = "User FileOpened"
   }, -- buffer分割线
 
-  -- "moll/vim-bbye",
-  "LudoPinelli/comment-box.nvim",
-  "lewis6991/gitsigns.nvim", -- 左则git提示
+  {
+    "LudoPinelli/comment-box.nvim",
+    event = "InsertEnter"
+  },
+
+  {
+    "lewis6991/gitsigns.nvim",
+    event = "User FileOpened",
+    cmd = "Gitsigns",
+  }, -- 左则git提示
   -- "rebelot/heirline.nvim",
   --code line effect for while
 
@@ -22,11 +33,14 @@ M.plugins_list = {
     main = "ibl",
     enabled = true,
   },
-  "nvim-lualine/lualine.nvim", -- 状态栏
+  {
+    "nvim-lualine/lualine.nvim",
+    event = "VimEnter"
+  }, -- 状态栏
   -- "SmiteshP/nvim-navic",
 
   { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
-  "onsails/lspkind-nvim",
+  -- "onsails/lspkind-nvim",
   "b0o/incline.nvim", -- 浮动状态拦
   {
     "norcalli/nvim-colorizer.lua",
@@ -39,7 +53,6 @@ M.plugins_list = {
   {
     "simrat39/symbols-outline.nvim",
     event = "BufReadPost",
-    enabled = true,
   },
 }
 -- local heirline = require 'plugins.ui.heirline'

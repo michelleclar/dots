@@ -1,3 +1,5 @@
+local M = {}
+M.set_lsp_keymap = function ()
 -- Global mappings.
 
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -40,4 +42,5 @@ vim.api.nvim_create_autocmd('LspAttach', {
   	vim.keymap.set("n", "<leader>lI", "<cmd>LspInstallInfo<cr>", opts)
   end,
 })
-
+end
+return M
