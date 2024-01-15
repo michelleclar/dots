@@ -4,7 +4,7 @@ function sync(){
   echo "syncing... $1"
 
   # 使用 rsync 命令合并 rm 和 cp 命令
-  rsync -aq $1 .
+  rsync -aq --delete $1 .
 
   # 检查退出码
   if [ $? -eq 0 ]; then
