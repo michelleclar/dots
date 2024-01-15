@@ -1,7 +1,5 @@
 require 'plugins.lazy'
 require 'plugins.ui'
-require 'plugins.terminal'
-require 'plugins.snippets'
 -- require 'plugins.git'
 -- require 'plugins.file'
 -- require 'plugins.diagnostics'

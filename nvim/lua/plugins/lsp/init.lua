@@ -7,7 +7,7 @@ local s = 'plugins.lsp.'
 -- require("plugins.lsp.handlers").setup()
 -- require "plugins.lsp.null_ls"
 -- require 'plugins.lsp.lspKeymaps'
-require (s .. 'lsp_signature')
+-- require (s .. 'lsp_signature')
 -- require (s .. '_neodev').config()
 
 -- require (s .. '_neodev')

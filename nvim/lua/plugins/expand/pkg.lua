@@ -7,6 +7,8 @@ M.plugins_list = {
     config = function()
       require("plugins.expand.comment").config()
     end,
+    -- lazy = false,
+    enabled = true,
     event = "User FileOpened",
   }, -- 快速注释
   {

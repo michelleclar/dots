@@ -1,4 +1,5 @@
 -- autocmd! remove all autocommands, if entered under a group it will clear that group
+vim.api.nvim_exec_autocmds("User", { pattern = "FileOpened" })
 vim.cmd [[
   augroup _general_settings
     autocmd!

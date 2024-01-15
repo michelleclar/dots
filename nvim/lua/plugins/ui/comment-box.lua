@@ -1,8 +1,12 @@
-local status_ok, comment_box = pcall(require, "comment-box")
-if not status_ok then
-	return
+local M = {}
+M.config = function()
+	local status_ok, comment_box = pcall(require, "comment-box")
+	if not status_ok then
+		return
+	end
+	comment_box.setup()
 end
-comment_box.setup()
+return M
 --[[ local keymap = vim.keymap.set ]]
 --[[ local cb = require("comment-box") ]]
 --[[]]
