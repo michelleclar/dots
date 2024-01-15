@@ -31,6 +31,9 @@ M.plugins_list = {
 
 	{
 		"lewis6991/gitsigns.nvim",
+		config = function()
+			require("plugins.ui.gitsigns").config()
+		end,
 		event = "User FileOpened",
 		cmd = "Gitsigns",
 	}, -- 左则git提示
@@ -39,19 +42,37 @@ M.plugins_list = {
 
 	{
 		"lukas-reineke/indent-blankline.nvim",
+		config = function()
+			require("plugins.ui.indentline").config()
+		end,
 		name = "new-indent",
 		main = "ibl",
 		enabled = true,
 	},
 	{
 		"nvim-lualine/lualine.nvim",
+		config = function()
+			require("plugins.ui.lualine").config()
+		end,
 		event = "VimEnter",
 	}, -- 状态栏
 	-- "SmiteshP/nvim-navic",
 
-	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+	{
+		"catppuccin/nvim",
+		config = function()
+			require("comment.theme").catppuccin()
+		end,
+		name = "catppuccin",
+		priority = 1000,
+	},
 	-- "onsails/lspkind-nvim",
-	"b0o/incline.nvim", -- 浮动状态拦
+	{
+		"b0o/incline.nvim",
+		config = function()
+			require("plugins.ui.incline").config()
+		end,
+	}, -- 浮动状态拦
 	{
 		"norcalli/nvim-colorizer.lua",
 		config = function()
@@ -68,6 +89,9 @@ M.plugins_list = {
 	}, -- dynamic LSP schedule
 	{
 		"simrat39/symbols-outline.nvim",
+		config = function()
+			require("plugins.ui.symbols_outline").config()
+		end,
 		event = "BufReadPost",
 	},
 }

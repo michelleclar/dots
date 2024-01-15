@@ -6,7 +6,9 @@ function sync(){
   # 使用 rsync 命令合并 rm 和 cp 命令
   # rm -rf $2
   # cp -r $1 .
-  rsync -aq --delete $1 $2
+  # rsync -av --delete $1 $2
+  rsync -av --delete $1 .
+  echo "rsync -av --delete $1 $2"
 
   # 检查退出码
   if [ $? -eq 0 ]; then
@@ -15,6 +17,7 @@ function sync(){
     echo "有变化，执行 git 命令"
 
     # 同步到云端
+    git add .
     git add .*
     git commit -m "$1"
     git push
@@ -43,7 +46,7 @@ menu(){
 menu
 read num
 case $num in
-  1) sync "~/.config/nvim" "nvim";;
+  1) sync "/home/carl/.config/nvim" "nvim";;
   2) sync "~/.config/hypr" "hypr";;
   3) sync "~/.config/kitty" "kitty";;
   4) sync "~/.config/neofetch" "neofetch";;
