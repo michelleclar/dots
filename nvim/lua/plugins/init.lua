@@ -18,6 +18,8 @@ local plugins = {
     cmd = { "PlenaryBustedFile", "PlenaryBustedDirectory" },
     lazy = true
   },
+
+  { "Tastyep/structlog.nvim", lazy = true },
   -- "nvim-lua/popup.nvim",
   -- theme
   --[[ "lunarvim/darkplus.nvim", ]]
@@ -49,3 +51,4 @@ end
 local opts = {} -- 注意要定义这个变量
 
 require("lazy").setup(plugins, opts)
+require("plugins.lsp").setup()

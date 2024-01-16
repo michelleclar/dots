@@ -62,3 +62,4 @@ M.config = function()
   }
   trouble.setup(opts)
 end
+return M

@@ -9,59 +9,84 @@ M.config = function()
     -- "bashls",
     "jsonls",
     "marksman",
-    "jdtls",
+    -- "jdtls",
     -- "yamlls",
   }
-
-  local settings = {
+  local opts = {
     ui = {
-      border = "none",
-      icons = {
-        package_installed = "◍",
-        package_pending = "◍",
-        package_uninstalled = "◍",
+      check_outdated_packages_on_open = true,
+      width = 0.8,
+      height = 0.9,
+      border = "rounded",
+      keymaps = {
+        toggle_package_expand = "<CR>",
+        install_package = "i",
+        update_package = "u",
+        check_package_version = "c",
+        update_all_packages = "U",
+        check_outdated_packages = "C",
+        uninstall_package = "X",
+        cancel_installation = "<C-c>",
+        apply_language_filter = "<C-f>",
       },
     },
-    log_level = vim.log.levels.INFO,
-    max_concurrent_installers = 4,
-    keymaps = {
-      ---@since 1.0.0
-      -- Keymap to expand a package
-      toggle_package_expand = "<CR>",
-      ---@since 1.0.0
-      -- Keymap to install the package under the current cursor position
-      install_package = "i",
-      ---@since 1.0.0
-      -- Keymap to reinstall/update the package under the current cursor position
-      update_package = "u",
-      ---@since 1.0.0
-      -- Keymap to check for new version for the package under the current cursor position
-      check_package_version = "c",
-      ---@since 1.0.0
-      -- Keymap to update all installed packages
-      update_all_packages = "U",
-      ---@since 1.0.0
-      -- Keymap to check which installed packages are outdated
-      check_outdated_packages = "C",
-      ---@since 1.0.0
-      -- Keymap to uninstall a package
-      uninstall_package = "X",
-      ---@since 1.0.0
-      -- Keymap to cancel a package installation
-      cancel_installation = "<C-c>",
-      ---@since 1.0.0
-      -- Keymap to apply language filter
-      apply_language_filter = "<C-f>",
-      ---@since 1.1.0
-      -- Keymap to toggle viewing package installation log
-      toggle_package_install_log = "<CR>",
-      ---@since 1.8.0
-      -- Keymap to toggle the help view
-      toggle_help = "g?",
-    },
-  }
 
-  require("mason").setup(settings)
+    icons = {
+      package_installed = "◍",
+      package_pending = "◍",
+      package_uninstalled = "◍",
+    },
+
+    -- NOTE: should be available in $PATH
+    -- install_root_dir = join_paths(vim.fn.stdpath "data", "mason"),
+
+    -- NOTE: already handled in the bootstrap stage
+    -- PATH = "skip",
+
+    pip = {
+      upgrade_pip = false,
+      -- These args will be added to `pip install` calls. Note that setting extra args might impact intended behavior
+      -- and is not recommended.
+      --
+      -- Example: { "--proxy", "https://proxyserver" }
+      install_args = {},
+    },
+
+    -- Controls to which degree logs are written to the log file. It's useful to set this to vim.log.levels.DEBUG when
+    -- debugging issues with package installations.
+    log_level = vim.log.levels.INFO,
+
+    -- Limit for the maximum amount of packages to be installed at the same time. Once this limit is reached, any further
+    -- packages that are requested to be installed will be put in a queue.
+    max_concurrent_installers = 4,
+
+    -- [Advanced setting]
+    -- The registries to source packages from. Accepts multiple entries. Should a package with the same name exist in
+    -- multiple registries, the registry listed first will be used.
+    registries = {
+      "lua:mason-registry.index",
+      "github:mason-org/mason-registry",
+    },
+
+    -- The provider implementations to use for resolving supplementary package metadata (e.g., all available versions).
+    -- Accepts multiple entries, where later entries will be used as fallback should prior providers fail.
+    providers = {
+      "mason.providers.registry-api",
+      "mason.providers.client",
+    },
+
+    github = {
+      -- The template URL to use when downloading assets from GitHub.
+      -- The placeholders are the following (in order):
+      -- 1. The repository (e.g. "rust-lang/rust-analyzer")
+      -- 2. The release version (e.g. "v0.3.0")
+      -- 3. The asset name (e.g. "rust-analyzer-v0.3.0-x86_64-unknown-linux-gnu.tar.gz")
+      download_url_template = "https://github.com/%s/releases/download/%s/%s",
+    },
+
+    on_config_done = nil,
+  }
+  require("mason").setup(opts)
   require("mason-lspconfig").setup({
     ensure_installed = servers,
     automatic_installation = true,
