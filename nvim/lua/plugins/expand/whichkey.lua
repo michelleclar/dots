@@ -88,7 +88,6 @@ M.config = function()
     ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
     ["w"] = { "<cmd>w!<CR>", "Save" },
     ["q"] = { "<cmd>q!<CR>", "Quit" },
-    -- ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
 
     ["c"] = { "<cmd>lua require('util').delete_buffer()<cr>", "Close Buffer" },
     ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
@@ -200,6 +199,11 @@ M.config = function()
       -- D = { require("lsp_lines").toggle, "Toggle lsp_lines" },
       l = { "<cmd>Lazy<cr>", "Lazy" },
     },
+    m = {
+      name = "Mark",
+      a = {"<cmd>lua require 'harpoon.mark'.add_file()<cr>","add Mark file"},
+      l = {"<cmd>lua require 'harpoon.ui'.toggle_quick_menu()<cr>","show all Mark"},
+    }
   }
   --[[ vim.tbl_deep_extend("force","",mappings.u) ]]
   which_key.setup(setup)

@@ -109,5 +109,6 @@ M.config = function()
       additional_vim_regex_highlighting = false,
     },
   })
+  telescope.load_extension("harpoon")
 end
 return M

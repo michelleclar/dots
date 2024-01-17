@@ -91,3 +91,318 @@
 
 [nvim-telescope/telescope-media-files.nvim](https://github.com/nvim-telescope/telescope-media-files)
 > 终端预览图片，配合telescope
+
+ nvim
+├──  doc
+│  └──  plugins.md
+├──  ftplugin
+│  ├──  java.lua
+│  └──  python.lua
+├──  init.lua
+├──  lazy-lock.json
+├──  lsp-settings
+│  ├──  gopls.json
+│  ├──  jdtls.json
+│  ├──  lua_ls.json
+│  ├──  pyright.json
+│  └──  rust_analyzer.json
+├──  lua
+│  ├──  _neodev.lua
+│  ├──  autocommands.lua
+│  ├──  comment
+│  │  ├──  icons.lua
+│  │  ├──  lsp_kind.lua
+│  │  ├──  nerd_font.lua
+│  │  ├──  text.lua
+│  │  └──  theme.lua
+│  ├──  core
+│  │  ├──  init.lua
+│  │  ├──  keymaps.lua
+│  │  └──  options.lua
+│  ├──  log
+│  │  └──  init.lua
+│  ├──  plugins
+│  │  ├──  cmp
+│  │  │  ├──  autopairs.lua
+│  │  │  ├──  cmp.lua
+│  │  │  ├──  cmp.lua.bac
+│  │  │  ├──  pkg.lua
+│  │  │  └──  README.md
+│  │  ├──  diagnostics
+│  │  │  ├──  pkg.lua
+│  │  │  ├──  README.md
+│  │  │  └──  trouble.lua
+│  │  ├──  expand
+│  │  │  ├──  autocommands.lua
+│  │  │  ├──  autocommands.lua.bac1
+│  │  │  ├──  autocommands.lua.back
+│  │  │  ├──  bufremove.lua
+│  │  │  ├──  comment.lua
+│  │  │  ├──  hop.lua
+│  │  │  ├──  pkg.lua
+│  │  │  ├──  project.lua
+│  │  │  ├──  README.md
+│  │  │  ├──  todo-comments.lua
+│  │  │  ├──  treesitter.lua
+│  │  │  └──  whichkey.lua
+│  │  ├──  file
+│  │  │  ├──  nvim-tree.lua
+│  │  │  ├──  nvim-tree.lua.bac
+│  │  │  ├──  pkg.lua
+│  │  │  ├──  README.md
+│  │  │  └──  telescope.lua
+│  │  ├──  git
+│  │  │  ├──  init.lua
+│  │  │  └──  README.md
+│  │  ├──  init.lua
+│  │  ├──  lsp
+│  │  │  ├──  config.lua
+│  │  │  ├──  init.lua
+│  │  │  ├──  lsp_signature.lua
+│  │  │  ├──  manager.lua
+│  │  │  ├──  mason.lua
+│  │  │  ├──  null_ls
+│  │  │  │  ├──  go.lua
+│  │  │  │  ├──  helpers.lua
+│  │  │  │  ├──  init.lua
+│  │  │  │  └──  markdown.lua
+│  │  │  ├──  pkg.lua
+│  │  │  ├──  providers
+│  │  │  │  ├──  jsonls.lua
+│  │  │  │  ├──  lua_ls.lua
+│  │  │  │  ├──  tailwindcss.lua
+│  │  │  │  └──  yamlls.lua
+│  │  │  ├──  setting
+│  │  │  │  ├──  jsonls.lua
+│  │  │  │  ├──  lua_ls.lua
+│  │  │  │  ├──  lua_ls.lua.back
+│  │  │  │  ├──  marksman.lua
+│  │  │  │  └──  pyright.lua
+│  │  │  └──  utils.lua
+│  │  ├──  lsp.old
+│  │  │  ├──  config.lua
+│  │  │  ├──  handlers.lua
+│  │  │  ├──  init.lua
+│  │  │  ├──  lsp_signature.lua
+│  │  │  ├──  lspKeymaps.lua
+│  │  │  ├──  manager.lua
+│  │  │  ├──  mason.lua
+│  │  │  ├──  null-ls.lua
+│  │  │  ├──  null_ls
+│  │  │  │  ├──  go.lua
+│  │  │  │  ├──  helpers.lua
+│  │  │  │  ├──  init.lua
+│  │  │  │  ├──  lsp.lua
+│  │  │  │  └──  markdown.lua
+│  │  │  ├──  pkg.lua
+│  │  │  ├──  providers
+│  │  │  │  ├──  jsonls.lua
+│  │  │  │  ├──  lua_ls.lua
+│  │  │  │  ├──  tailwindcss.lua
+│  │  │  │  └──  yamlls.lua
+│  │  │  ├──  setting
+│  │  │  │  ├──  jsonls.lua
+│  │  │  │  ├──  lua_ls.lua
+│  │  │  │  ├──  lua_ls.lua.back
+│  │  │  │  ├──  marksman.lua
+│  │  │  │  └──  pyright.lua
+│  │  │  └──  utils.lua
+│  │  ├──  snippets
+│  │  │  ├──  luasnip.lua
+│  │  │  ├──  pkg.lua
+│  │  │  └──  README.md
+│  │  ├──  terminal
+│  │  │  ├──  pkg.lua
+│  │  │  ├──  README.md
+│  │  │  ├──  toggleterm.lua
+│  │  │  └──  toggleterm.lua.bacup
+│  │  └──  ui
+│  │     ├──  alpha.lua
+│  │     ├──  bufferline.lua
+│  │     ├──  colorizer.lua
+│  │     ├──  comment-box.lua
+│  │     ├──  fidget.lua
+│  │     ├──  gitsigns.lua
+│  │     ├──  heirline.lua
+│  │     ├──  incline.lua
+│  │     ├──  indentline.lua
+│  │     ├──  lineUtil
+│  │     │  ├──  _heirline.lua
+│  │     │  ├──  buffer.lua
+│  │     │  ├──  component.lua
+│  │     │  ├──  condition.lua
+│  │     │  ├──  env.lua
+│  │     │  ├──  hl.lua
+│  │     │  ├──  init.lua
+│  │     │  ├──  provider.lua
+│  │     │  ├──  status.lua
+│  │     │  ├──  temp.lua
+│  │     │  └──  utils.lua
+│  │     ├──  lspkind.lua
+│  │     ├──  lualine.lua
+│  │     ├──  navic.lua
+│  │     ├──  pkg.lua
+│  │     ├──  README.md
+│  │     ├──  symbols_outline.lua
+│  │     └──  winbar.lua
+│  ├──  test
+│  │  ├──  lua.log
+│  │  └──  test.lua
+│  └──  util
+│     ├──  init.lua
+│     ├──  null-ls.lua
+│     └──  table.lua
+├──  package-lock.json
+├──  package.json
+├──  README.md
+└──  test
+   ├──  lua.log
+   └──  test.lua
+ nvim
+├──  doc
+│  └──  plugins.md
+├──  ftplugin
+│  ├──  java.lua
+│  └──  python.lua
+├──  init.lua
+├──  lazy-lock.json
+├──  lsp-settings
+│  ├──  gopls.json
+│  ├──  jdtls.json
+│  ├──  lua_ls.json
+│  ├──  pyright.json
+│  └──  rust_analyzer.json
+├──  lua
+│  ├──  _neodev.lua
+│  ├──  autocommands.lua
+│  ├──  comment
+│  │  ├──  icons.lua
+│  │  ├──  lsp_kind.lua
+│  │  ├──  nerd_font.lua
+│  │  ├──  text.lua
+│  │  └──  theme.lua
+│  ├──  core
+│  │  ├──  init.lua
+│  │  ├──  keymaps.lua
+│  │  └──  options.lua
+│  ├──  log
+│  │  └──  init.lua
+│  ├──  plugins
+│  │  ├──  cmp
+│  │  │  ├──  autopairs.lua
+│  │  │  ├──  cmp.lua
+│  │  │  ├──  cmp.lua.bac
+│  │  │  ├──  pkg.lua
+│  │  │  └──  README.md
+│  │  ├──  diagnostics
+│  │  │  ├──  pkg.lua
+│  │  │  ├──  README.md
+│  │  │  └──  trouble.lua
+│  │  ├──  expand
+│  │  │  ├──  autocommands.lua
+│  │  │  ├──  autocommands.lua.bac1
+│  │  │  ├──  autocommands.lua.back
+│  │  │  ├──  bufremove.lua
+│  │  │  ├──  comment.lua
+│  │  │  ├──  hop.lua
+│  │  │  ├──  pkg.lua
+│  │  │  ├──  project.lua
+│  │  │  ├──  README.md
+│  │  │  ├──  todo-comments.lua
+│  │  │  ├──  treesitter.lua
+│  │  │  └──  whichkey.lua
+│  │  ├──  file
+│  │  │  ├──  nvim-tree.lua
+│  │  │  ├──  nvim-tree.lua.bac
+│  │  │  ├──  pkg.lua
+│  │  │  ├──  README.md
+│  │  │  └──  telescope.lua
+│  │  ├──  git
+│  │  │  ├──  init.lua
+│  │  │  └──  README.md
+│  │  ├──  init.lua
+│  │  ├──  lsp
+│  │  │  ├──  config.lua
+│  │  │  ├──  init.lua
+│  │  │  ├──  lsp_signature.lua
+│  │  │  ├──  manager.lua
+│  │  │  ├──  mason.lua
+│  │  │  ├──  null_ls
+│  │  │  │  ├──  go.lua
+│  │  │  │  ├──  helpers.lua
+│  │  │  │  ├──  init.lua
+│  │  │  │  └──  markdown.lua
+│  │  │  ├──  pkg.lua
+│  │  │  ├──  providers
+│  │  │  │  ├──  jsonls.lua
+│  │  │  │  ├──  lua_ls.lua
+│  │  │  │  ├──  tailwindcss.lua
+│  │  │  │  └──  yamlls.lua
+│  │  │  ├──  setting
+│  │  │  │  ├──  jsonls.lua
+│  │  │  │  ├──  lua_ls.lua
+│  │  │  │  ├──  lua_ls.lua.back
+│  │  │  │  ├──  marksman.lua
+│  │  │  │  └──  pyright.lua
+│  │  │  └──  utils.lua
+│  │  ├──  lsp.old
+│  │  │  ├──  config.lua
+│  │  │  ├──  handlers.lua
+│  │  │  ├──  init.lua
+│  │  │  ├──  lsp_signature.lua
+│  │  │  ├──  lspKeymaps.lua
+│  │  │  ├──  manager.lua
+│  │  │  ├──  mason.lua
+│  │  │  ├──  null-ls.lua
+│  │  │  ├──  null_ls
+│  │  │  │  ├──  go.lua
+│  │  │  │  ├──  helpers.lua
+│  │  │  │  ├──  init.lua
+│  │  │  │  ├──  lsp.lua
+│  │  │  │  └──  markdown.lua
+│  │  │  ├──  pkg.lua
+│  │  │  ├──  providers
+│  │  │  │  ├──  jsonls.lua
+│  │  │  │  ├──  lua_ls.lua
+│  │  │  │  ├──  tailwindcss.lua
+│  │  │  │  └──  yamlls.lua
+│  │  │  ├──  setting
+│  │  │  │  ├──  jsonls.lua
+│  │  │  │  ├──  lua_ls.lua
+│  │  │  │  ├──  lua_ls.lua.back
+│  │  │  │  ├──  marksman.lua
+│  │  │  │  └──  pyright.lua
+│  │  │  └──  utils.lua
+│  │  ├──  snippets
+│  │  │  ├──  luasnip.lua
+│  │  │  ├──  pkg.lua
+│  │  │  └──  README.md
+│  │  ├──  terminal
+│  │  │  ├──  pkg.lua
+│  │  │  ├──  README.md
+│  │  │  ├──  toggleterm.lua
+│  │  │  └──  toggleterm.lua.bacup
+│  │  └──  ui
+│  │     ├──  alpha.lua
+│  │     ├──  bufferline.lua
+│  │     ├──  colorizer.lua
+│  │     ├──  comment-box.lua
+│  │     ├──  fidget.lua
+│  │     ├──  gitsigns.lua
+│  │     ├──  heirline.lua
+│  │     ├──  incline.lua
+│  │     ├──  indentline.lua
+│  │     ├──  lspkind.lua
+│  │     ├──  lualine.lua
+│  │     ├──  navic.lua
+│  │     ├──  pkg.lua
+│  │     ├──  README.md
+│  │     ├──  symbols_outline.lua
+│  │     └──  winbar.lua
+│  ├──  test
+│  │  ├──  lua.log
+│  │  └──  test.lua
+│  └──  util
+│     ├──  init.lua
+│     ├──  null-ls.lua
+│     └──  table.lua
