@@ -32,7 +32,9 @@ M.plugins_list = {
     "williamboman/mason.nvim",
     cmd = { "Mason", "MasonInstall", "MasonUninstall", "MasonUninstallAll", "MasonLog" },
     config = function()
-      require("plugins.lsp.mason").setup()
+      require("plugins.lsp.mason").config()
+      -- require("plugins.lsp.lspKeymaps").set_lsp_keymap()
+      -- require("plugins.lsp.handlers").setup()
     end,
     build = function()
       pcall(function()

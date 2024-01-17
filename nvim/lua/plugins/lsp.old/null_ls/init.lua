@@ -79,7 +79,7 @@ M.config = function()
       extra_args = { "--metrics", "off", "--exclude", "vendor", "--config", semgrep_rule_folder },
     },
     nls.builtins.diagnostics.shellcheck,
-    nls.builtins.diagnostics.luacheck,
+    -- nls.builtins.diagnostics.luacheck,
     nls.builtins.diagnostics.vint,
     nls.builtins.diagnostics.chktex,
     -- Support for nix files

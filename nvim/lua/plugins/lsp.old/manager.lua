@@ -2,6 +2,8 @@ local M = {}
 
 local Log = require "log"
 local fmt = string.format
+local lsp_utils = require("plugins.lsp.utils")
+local lsp_config = require("plugins.lsp.config")
 local is_windows = vim.loop.os_uname().version:match "Windows"
 
 local function resolve_mason_config(server_name)
@@ -31,13 +33,13 @@ end
 ---@return table
 local function resolve_config(server_name, ...)
   local defaults = {
-    on_attach = require("lvim.lsp").common_on_attach,
-    on_init = require("lvim.lsp").common_on_init,
-    on_exit = require("lvim.lsp").common_on_exit,
-    capabilities = require("lvim.lsp").common_capabilities(),
+    on_attach = require("plugins.lsp").common_on_attach,
+    on_init = require("plugins.lsp").common_on_init,
+    on_exit = require("plugins.lsp").common_on_exit,
+    capabilities = require("plugins.lsp").common_capabilities(),
   }
 
-  local has_custom_provider, custom_config = pcall(require, "lvim/lsp/providers/" .. server_name)
+  local has_custom_provider, custom_config = pcall(require, "plugins/lsp/providers/" .. server_name)
   if has_custom_provider then
     Log:debug("Using custom configuration for requested server: " .. server_name)
     defaults = vim.tbl_deep_extend("force", defaults, custom_config)
@@ -93,7 +95,7 @@ function M.setup(server_name, user_config)
   vim.validate { name = { server_name, "string" } }
   user_config = user_config or {}
 
-  if lvim_lsp_utils.is_client_active(server_name) or client_is_configured(server_name) then
+  if lsp_utils.is_client_active(server_name) or client_is_configured(server_name) then
     return
   end
 
@@ -108,7 +110,7 @@ function M.setup(server_name, user_config)
   end
 
   local should_auto_install = function(name)
-    local installer_settings = lvim.lsp.installer.setup
+    local installer_settings = lsp_config.installer.setup
     return installer_settings.automatic_installation
       and not vim.tbl_contains(installer_settings.automatic_installation.exclude, name)
   end
