@@ -108,12 +108,12 @@ M.config = function()
       native_menu = false,
     },
     mapping = {
-      ["<C-k>"] = cmp.mapping.select_prev_item(),                     -- 上一个建议
-      ["<C-j>"] = cmp.mapping.select_next_item(),                     -- 下一个建议
+      ["<C-k>"] = cmp.mapping.select_prev_item(),                         -- 上一个建议
+      ["<C-j>"] = cmp.mapping.select_next_item(),                         -- 下一个建议
       ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }), -- documents 向下滚动
-      ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }), -- documents 向上滚动
-      ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }), -- 显示所有可用的建议
-      ["<C-y>"] = cmp.config.disable,                                 -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
+      ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),  -- documents 向上滚动
+      ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),  -- 显示所有可用的建议
+      ["<C-y>"] = cmp.config.disable,                                     -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
       ["<C-e>"] = cmp.mapping({
         i = cmp.mapping.abort(),
         c = cmp.mapping.close(),
@@ -222,7 +222,10 @@ M.config = function()
         type = ":",
         sources = {
           { name = "path" },
-          { name = "cmdline" },
+          {
+            name = "cmdline",
+            keyword_length = 2,
+          },
         },
       },
       {

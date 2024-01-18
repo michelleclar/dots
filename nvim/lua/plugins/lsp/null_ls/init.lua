@@ -36,7 +36,7 @@ M.config = function()
       end,
       prefer_local = "node_modules/.bin",
     },
-    nls.builtins.formatting.stylua,
+    -- nls.builtins.formatting.stylua,
     nls.builtins.formatting.goimports,
     nls.builtins.formatting.gofumpt,
     nls.builtins.formatting.cmake_format,
@@ -85,14 +85,14 @@ M.config = function()
     -- Support for nix files
     nls.builtins.diagnostics.deadnix,
     nls.builtins.diagnostics.statix,
-    nls.builtins.diagnostics.markdownlint.with {
-      filetypes = { "markdown" },
-      extra_args = { "-r", "~MD013" },
-    },
-    nls.builtins.diagnostics.vale.with {
-      filetypes = { "markdown" },
-      extra_args = { "--config", vale_config },
-    },
+    -- nls.builtins.diagnostics.markdownlint.with {
+    --   filetypes = { "markdown" },
+    --   extra_args = { "-r", "~MD013" },
+    -- },
+    -- nls.builtins.diagnostics.vale.with {
+    --   filetypes = { "markdown" },
+    --   extra_args = { "--config", vale_config },
+    -- },
     nls.builtins.code_actions.shellcheck,
     -- WARN: broken on neovim-head because of `nvim.treesitter.get_node_at_pos` being deprecated
     -- nls.builtins.code_actions.gomodifytags,

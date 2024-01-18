@@ -86,5 +86,13 @@ function M.setup_document_highlight(client, bufnr)
   --   callback = vim.lsp.buf.clear_references,
   -- })
 end
+---Simple wrapper for vim.lsp.buf.format() to provide defaults
+---@param opts table|nil
+function M.format(opts)
+  opts = opts or {}
+  opts.filter = opts.filter or M.format_filter
+
+  return vim.lsp.buf.format(opts)
+end
 
 return M

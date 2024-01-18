@@ -86,7 +86,7 @@ M.plugins_list = {
       require("plugins.ui.fidget").config()
     end,
     branch = "legacy",
-  }, -- dynamic LSP schedule
+  }, -- dynamic Information
   {
     "simrat39/symbols-outline.nvim",
     config = function()

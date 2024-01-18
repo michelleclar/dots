@@ -1,6 +1,9 @@
 local M = {}
 -- autocmd! remove all autocommands, if entered under a group it will clear that group
 vim.api.nvim_exec_autocmds("User", { pattern = "FileOpened" })
+
+vim.api.nvim_create_augroup("user", {})
+local create_aucmd = vim.api.nvim_create_autocmd
 vim.cmd [[
   augroup _general_settings
     autocmd!
@@ -93,11 +96,22 @@ function M.enable_format_on_save()
     group = "lsp_format_on_save",
     pattern = opts.pattern,
     callback = function()
-      require("lvim.lsp.utils").format { timeout_ms = opts.timeout, filter = opts.filter }
+      require("plugins.lsp.utils").format { timeout_ms = opts.timeout, filter = opts.filter }
     end,
   })
   vim.notify("enabled format-on-save")
 end
+
+create_aucmd("BufWinEnter", {
+  group = "user",
+  pattern = "*.md",
+  desc = "beautify markdown",
+  callback = function()
+    vim.cmd [[set syntax=markdown]]
+    require("plugins.ui.markdown_syn").set_syntax()
+  end,
+})
+
 
 
 return M

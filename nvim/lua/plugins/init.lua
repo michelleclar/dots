@@ -25,10 +25,8 @@ local plugins = {
   --[[ "lunarvim/darkplus.nvim", ]]
   --[[ "folke/tokyonight.nvim", -- 主题 ]]
   -- "nvim-tree/nvim-web-devicons", -- 文档树图标
-  --[[ "saadparwaiz1/cmp_luasnip", -- snippet engine ]]
-  -- git
+  -- git gui
   "kdheepak/lazygit.nvim",
-  -- "nvim-lua/lsp-status.nvim",
 }
 local components = {
   "cmp",
