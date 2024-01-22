@@ -26,10 +26,11 @@ function sync(){
 
   mv $path ${path}${filename}
   echo "mv $path ${path}${filename}"
-  cp $2 $1
-  echo "cp $2 $1"
+  cp -r $2 $1
+  echo "cp -r $2 $1"
 }
 
+read num
 
 
 case $num in
