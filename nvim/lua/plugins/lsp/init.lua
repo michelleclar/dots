@@ -112,6 +112,7 @@ end
 function M.remove_template_files()
   -- remove any outdated files
   for _, file in ipairs(vim.fn.glob(lsp_config.templates_dir .. "/*.lua", 1, 1)) do
+
     vim.fn.delete(file)
   end
 end
@@ -127,6 +128,7 @@ end
 ---@param server_name string name of a valid language server, e.g. pyright, gopls, tsserver, etc.
 ---@param dir string the full path to the desired directory
 function M.generate_ftplugin(server_name, dir)
+  vim.notify("server_name")
   if should_skip(server_name) then
     return
   end
@@ -180,15 +182,15 @@ function M.setup()
   for _, sign in ipairs(vim.tbl_get(vim.diagnostic.config(), "signs", "values") or {}) do
     vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = sign.name })
   end
-
+  -- NOTE:first open nvim ,generate lsp templates,templates(Mason lsp list)
   if not utils.is_directory(lsp_config.templates_dir) then
     M.generate_templates()
   end
-
+  -- NOTE:json config lsp 
   pcall(function()
     require("nlspsettings").setup(lsp_config.nlsp_settings.setup)
   end)
-
+  -- NOTE:this remove lazy
   -- require("plugins.lsp.null-ls").setup()
 
   autocmds.configure_format_on_save()
@@ -202,7 +204,7 @@ function M.setup()
   set_handler_opts_if_not_set("textDocument/hover", vim.lsp.handlers.hover, { border = "rounded" })
   set_handler_opts_if_not_set("textDocument/signatureHelp", vim.lsp.handlers.signature_help, { border = "rounded" })
 
-  -- Enable rounded borders in :LspInfo window.
+  -- NOTE: Enable rounded borders in :LspInfo window.
   require("lspconfig.ui.windows").default_options.border = "rounded"
 end
 

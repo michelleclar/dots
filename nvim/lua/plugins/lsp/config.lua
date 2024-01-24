@@ -18,7 +18,7 @@ local skipped_servers = {
   "eslintls",
   "glint",
   "golangci_lint_ls",
-  "gradle_ls",
+  -- "gradle_ls",
   "graphql",
   "htmx",
   "java_language_server",
