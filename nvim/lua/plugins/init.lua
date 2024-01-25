@@ -46,9 +46,13 @@ for _, completion in pairs(components) do
     table.insert(plugins, pls.plugins_list)
   end
 end
-local opts = {} -- 注意要定义这个变量
+local opts = {
+  ui = {
+    border = "rounded",
+  },
+}
 
-require("lazy").setup(plugins, opts)
-require("plugins.lsp").setup()
-require("autocommands")
-require("_neodev")
+require("lazy").setup(plugins, opts) -- plugins settings
+require("plugins.lsp").setup() -- lsp settings
+require("autocommands") -- auto commands(markdown)
+require("_neodev") -- help to make nvim plugins 

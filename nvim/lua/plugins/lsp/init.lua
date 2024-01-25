@@ -182,7 +182,7 @@ function M.setup()
   for _, sign in ipairs(vim.tbl_get(vim.diagnostic.config(), "signs", "values") or {}) do
     vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = sign.name })
   end
-  -- NOTE:first open nvim ,generate lsp templates,templates(Mason lsp list)
+  -- NOTE:first open nvim ,generate lsp templates,templates(Mason lsp list)(path:~/.local/share/nvim)
   if not utils.is_directory(lsp_config.templates_dir) then
     M.generate_templates()
   end

@@ -179,7 +179,7 @@ M.config = function()
     s = {
       name = "Split",
       h = { "<C-w>s", "垂直新增窗口" },
-      v = {"C-w>v","水平新增窗口"},
+      v = {"<C-w>v","水平新增窗口"},
     },
 
     t = {

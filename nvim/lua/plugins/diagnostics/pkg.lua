@@ -15,7 +15,7 @@ M.plugins_list = {
       }
     end,
     event = "VeryLazy",
-    enable = false,
+    enabled = false,
     cmd = "Trouble",
   },
   -- {

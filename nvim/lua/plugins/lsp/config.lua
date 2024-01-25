@@ -62,7 +62,8 @@ local skipped_servers = {
   "v_analyzer",
   "vtsls",
   "vuels",
-  "jdtls"
+  "jdtls",
+  "pyright"
 }
 
 local skipped_filetypes = { "markdown", "rst", "plaintext", "toml", "proto" }

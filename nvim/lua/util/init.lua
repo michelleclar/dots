@@ -22,7 +22,7 @@ function M.writeFile(fileName, content)
     fileName = "/home/carl/.config/nvim/test/lua.log"
   end
   local f = assert(io.open(fileName, "a+"))
-  f:write(content)
+  f:write(content .. "\n")
   f:close()
 end
 

@@ -37,6 +37,7 @@ M.config = function()
       prefer_local = "node_modules/.bin",
     },
     -- nls.builtins.formatting.stylua,
+    nls.builtins.formatting.npm_groovy_lint,
     nls.builtins.formatting.goimports,
     nls.builtins.formatting.gofumpt,
     nls.builtins.formatting.cmake_format,
@@ -114,7 +115,7 @@ M.config = function()
   table.insert(
     sources,
     nls.builtins.code_actions.refactoring.with {
-      filetypes = { "typescript", "javascript", "lua", "c", "cpp", "go", "python", "java", "php" },
+      filetypes = { "typescript", "javascript", "lua", "c", "cpp", "go", "python", "java" },
     }
   )
   local ts_found, typescript_code_actions = pcall(require, "typescript.extensions.null-ls.code-actions")

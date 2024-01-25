@@ -11,9 +11,9 @@ local default_workspace = {
   maxPreload = 5000,
   preloadFileSize = 10000,
 }
-
+print("providers lua_ls")
 local add_packages_to_workspace = function(packages, config)
-  -- config.settings.Lua = config.settings.Lua or { workspace = default_workspace }
+  config.settings.Lua = config.settings.Lua or { workspace = default_workspace }
   local runtimedirs = vim.api.nvim__get_runtime({ "lua" }, true, { is_lua = true })
   local workspace = config.settings.Lua.workspace
   for _, v in pairs(runtimedirs) do
