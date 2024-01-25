@@ -128,7 +128,6 @@ end
 ---@param server_name string name of a valid language server, e.g. pyright, gopls, tsserver, etc.
 ---@param dir string the full path to the desired directory
 function M.generate_ftplugin(server_name, dir)
-  vim.notify("server_name")
   if should_skip(server_name) then
     return
   end
