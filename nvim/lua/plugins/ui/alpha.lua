@@ -37,24 +37,6 @@ M.config = function()
   }
 
   local dashboard = require("alpha.themes.dashboard")
-  dashboard.section.header.val = require("plugins.ui.alpha.banners").dashboard()
-  local function footer()
-    -- NOTE: requires the fortune-mod package to work
-    -- local handle = io.popen("fortune")
-    -- local fortune = handle:read("*a")
-    -- handle:close()
-    -- return fortune
-    return "carlmichelle493@gmail.com"
-  end
-
-  dashboard.section.footer.val = footer()
-
-  dashboard.section.footer.opts.hl = "Type"
-  dashboard.section.header.opts.hl = "Include"
-  dashboard.section.buttons.opts.hl = "Keyword"
-  dashboard.section.plugin_count = plugin_count
-
-  dashboard.opts.opts.noautocmd = true
   -- vim.cmd([[autocmd User AlphaReady echo 'ready']])
   local header = {
     type = "text",
