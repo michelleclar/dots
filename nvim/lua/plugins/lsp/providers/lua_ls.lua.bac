@@ -1,7 +1,7 @@
 local default_workspace = {
   library = {
-    vim.fn.expand "$VIMRUNTIME",
     vim.env.VIMRUNTIME,
+    vim.fn.expand "$VIMRUNTIME",
     require("neodev.config").types(),
     "${3rd}/busted/library",
     "${3rd}/luassert/library",
@@ -13,7 +13,6 @@ local default_workspace = {
 }
 print("providers lua_ls")
 local add_packages_to_workspace = function(packages, config)
-  config.settings.Lua = config.settings.Lua or { workspace = default_workspace }
   local runtimedirs = vim.api.nvim__get_runtime({ "lua" }, true, { is_lua = true })
   local workspace = config.settings.Lua.workspace
   for _, v in pairs(runtimedirs) do

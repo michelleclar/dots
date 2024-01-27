@@ -4,7 +4,6 @@ M.plugins_list = {
   -- LSP
   {
     "folke/neodev.nvim",
-    opts = {},
     -- config = function()
     --   require("neodev").setup({})
     --   -- require("plugins.lsp._neodev").config()

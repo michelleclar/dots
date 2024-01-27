@@ -40,11 +40,6 @@ o.guifont = "FiraCode Nerd Font:h13"
 -- o.guifont = "monospace:h17" -- the font used in graphical neovim applications
 o.whichwrap = "bs<>[]hl" -- which "horizontal" keys are allowed to travel to prev/next line
 o.mousemoveevent = true
-
---[[ for k, v in pairs(options) do ]]
---[[   vim.opt[k] = v ]]
---[[ end ]]
---[[]]
 -- vim.opt.shortmess = "ilmnrx"                        -- flags to shorten vim messages, see :help 'shortmess',缩短Vim消息
 o.shortmess:append("c")                         -- don't give |ins-completion-menu| messages
 o.iskeyword:append("-")                         -- hyphenated words recognized by searches
@@ -52,4 +47,10 @@ o.formatoptions:remove({ "c", "r", "o" })       -- don't insert the current comm
 o.runtimepath:remove("/usr/share/vim/vimfiles") -- separate vim plugins from neovim in case vim still in use
 o.timeout = true
 o.wildmenu = true
-vim.g.transparent_background = true
+-- NOTE:this is fix checkhealth (0:disabled | $path)
+vim.g.transparent_background = true -- 透明背景
+vim.g.loaded_perl_provider = 0
+-- -- vim.g.ruby_host_prog = "/home/carl/.local/share/gem/ruby/3.0.0/bin/neovim-ruby-host"
+-- vim.g.python3_host_prog = '/home/carl/.conda/envs/pynvim/bin/python'
+vim.g.loaded_node_provider = "/home/carl/.nvm/versions/node/v18.18.1/bin/npm"
+-- end

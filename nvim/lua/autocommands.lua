@@ -78,7 +78,6 @@ end
 
 local get_format_on_save_opts = function()
   local defaults = format_on_save
-  -- accept a basic boolean `lvim.format_on_save=true`
   if type(format_on_save) ~= "table" then
     return defaults
   end

@@ -94,7 +94,6 @@ function M.get_supported_filetypes(server_name)
   return config.default_config.filetypes or {}
 end
 
-
 ---Get supported servers per filetype
 ---@param filter { filetype: string | string[] }?: (optional) Used to filter the list of server names.
 ---@return string[] list of names of supported servers
@@ -112,11 +111,9 @@ end
 function M.remove_template_files()
   -- remove any outdated files
   for _, file in ipairs(vim.fn.glob(lsp_config.templates_dir .. "/*.lua", 1, 1)) do
-
     vim.fn.delete(file)
   end
 end
-
 
 ---Check if we should skip generating an ftplugin file based on the server_name
 ---@param server_name string name of a valid language server
@@ -128,7 +125,7 @@ end
 ---@param server_name string name of a valid language server, e.g. pyright, gopls, tsserver, etc.
 ---@param dir string the full path to the desired directory
 function M.generate_ftplugin(server_name, dir)
-  vim.notify("server_name")
+  utils.write_file("/home/carl/.lsp.log", server_name.. "\n", "a")
   if should_skip(server_name) then
     return
   end
@@ -146,9 +143,8 @@ function M.generate_ftplugin(server_name, dir)
     filetype = filetype:match "%.([^.]*)$" or filetype
     local filename = utils.join_paths(dir, filetype .. ".lua")
     local setup_cmd = string.format([[require("plugins.lsp.manager").setup(%q)]], server_name)
-    require("util").writeFile(nil,setup_cmd)
-    -- print("using setup_cmd: " .. setup_cmd)
-    -- overwrite the file completely
+    require("util").writeFile(nil, setup_cmd .. "\n")
+    -- NOTE: overwrite the file completely
     utils.write_file(filename, setup_cmd .. "\n", "a")
   end
 end
@@ -182,15 +178,15 @@ function M.setup()
   for _, sign in ipairs(vim.tbl_get(vim.diagnostic.config(), "signs", "values") or {}) do
     vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = sign.name })
   end
-  -- NOTE:first open nvim ,generate lsp templates,templates(Mason lsp list)(path:~/.local/share/nvim)
+  -- NOTE: first open nvim ,generate lsp templates,templates(Mason lsp list)(path:~/.local/share/nvim)
   if not utils.is_directory(lsp_config.templates_dir) then
     M.generate_templates()
   end
-  -- NOTE:json config lsp 
+  -- NOTE: json config lsp
   pcall(function()
     require("nlspsettings").setup(lsp_config.nlsp_settings.setup)
   end)
-  -- NOTE:this remove lazy
+  -- NOTE: this remove lazy
   -- require("plugins.lsp.null-ls").setup()
 
   autocmds.configure_format_on_save()

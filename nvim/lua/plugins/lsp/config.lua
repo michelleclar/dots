@@ -18,7 +18,7 @@ local skipped_servers = {
   "eslintls",
   "glint",
   "golangci_lint_ls",
-  -- "gradle_ls",
+  "gradle_ls",
   "graphql",
   "htmx",
   "java_language_server",
@@ -63,7 +63,18 @@ local skipped_servers = {
   "vtsls",
   "vuels",
   "jdtls",
-  "pyright"
+  "pyright",
+  "clangd",
+  "dockerls",
+  "gopls",
+  "golangci_lint_ls",
+  "jdtls",
+  "pyright",
+  "rust_analyzer",
+  "taplo",
+  "texlab",
+  "tsserver",
+  "yamlls",
 }
 
 local skipped_filetypes = { "markdown", "rst", "plaintext", "toml", "proto" }

@@ -53,6 +53,6 @@ local opts = {
 }
 
 require("lazy").setup(plugins, opts) -- plugins settings
-require("plugins.lsp").setup() -- lsp settings
-require("autocommands") -- auto commands(markdown)
-require("_neodev") -- help to make nvim plugins 
+require("plugins.lsp").setup()       -- lsp settings
+require("autocommands")              -- auto commands(markdown)
+require("_neodev") -- help to make nvim plugins

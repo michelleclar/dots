@@ -32,7 +32,6 @@ end
 ---@vararg any config table [optional]
 ---@return table
 local function resolve_config(server_name, ...)
-  print(server_name)
   local defaults = {
     on_attach = require("plugins.lsp").common_on_attach,
     on_init = require("plugins.lsp").common_on_init,
@@ -93,7 +92,6 @@ end
 ---@param server_name string name of the language server
 ---@param user_config table? when available it will take predence over any default configurations
 function M.setup(server_name, user_config)
-  print(server_name)
   require("util").writeFile(nil,server_name)
   vim.validate { name = { server_name, "string" } }
   user_config = user_config or {}
