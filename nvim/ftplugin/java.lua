@@ -11,7 +11,7 @@ local launcher_path = vim.fn.glob(mason_path .. "/packages/jdtls/plugins/org.ecl
 
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
 CONFIG = "linux"
-WORKSPACE_PATH = home .. "/Workspace/"
+WORKSPACE_PATH = home .. "/workspace/"
 local workspace_dir = WORKSPACE_PATH .. project_name
 
 local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" }
@@ -77,7 +77,7 @@ local config = {
         enabled = true,
         settings = {
           profile = "GoogleStyle",
-          url = home .. "/.config/lvim/.java-google-formatter.xml",
+          url = home .. "/.config/nvim/.java-google-formatter.xml",
         },
       },
     },
