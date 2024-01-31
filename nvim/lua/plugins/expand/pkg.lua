@@ -114,6 +114,14 @@ M.plugins_list = {
     keys = "<leader>?",
     enabled = true,
   },
+
+  -- {
+  --   "windwp/nvim-spectre",
+  --   lazy = true,
+  --   config = function()
+  --     require("user.spectre").config()
+  --   end,
+  -- },
   --[[ { ]]
   --[[ 	"iamcco/markdown-preview.nvim", ]]
   --[[ 	cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" }, ]]
