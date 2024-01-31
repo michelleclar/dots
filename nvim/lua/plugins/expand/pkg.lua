@@ -103,6 +103,17 @@ M.plugins_list = {
     event = "VeryLazy",
     cmd = { "HopChar1CurrentLineAC", "HopChar1CurrentLineBC", "HopChar2MW", "HopWordMW" },
   }, -- more cursor
+  {
+    "RishabhRD/nvim-cheat.sh",
+    dependencies = "RishabhRD/popfix",
+    config = function()
+      vim.g.cheat_default_window_layout = "vertical_split"
+    end,
+    lazy = true,
+    cmd = { "Cheat", "CheatWithoutComments", "CheatList", "CheatListWithoutComments" },
+    keys = "<leader>?",
+    enabled = true,
+  },
   --[[ { ]]
   --[[ 	"iamcco/markdown-preview.nvim", ]]
   --[[ 	cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" }, ]]

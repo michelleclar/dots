@@ -99,6 +99,7 @@ M.config = function()
     ["P"] = { "<cmd>Telescope projects<cr>", "Projects" },
     ["o"] = { "<cmd>SymbolsOutline<cr>", " Symbol Outline" },
     ["H"] = { "<cmd>Telescope help_tags<cr>", "find help doc" },
+    ["?"] = {"<cmd>Cheat<cr>","Cheat"},
 
     L = {
       name = "+Lazy",

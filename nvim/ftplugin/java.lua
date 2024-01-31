@@ -19,7 +19,19 @@ local root_dir = require("jdtls.setup").find_root(root_markers)
 local extendedClientCapabilities = jdtls.extendedClientCapabilities
 extendedClientCapabilities.resolveAdditionalTextEditsSupport = true
 
+-- Run :MasonInstall java-test
 local bundles = { vim.fn.glob(mason_path .. "/packages/java-test/extension/server/*.jar", true) }
+
+local extra_bundles =
+  vim.fn.glob(mason_path .. "/packages/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar", true)
+if #extra_bundles == 0 then
+  extra_bundles = vim.fn.glob(
+    mason_path .. "/packages/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar",
+    true
+  )
+end
+vim.list_extend(bundles, { extra_bundles })
+
 local config = {
   cmd = {
     "java",
