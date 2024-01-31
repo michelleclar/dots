@@ -81,7 +81,7 @@ M.config = function()
 
   local mappings = {
     ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
-    ["b"] = {
+    ["B"] = {
       "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
       "Buffers",
     },
@@ -97,9 +97,11 @@ M.config = function()
     },
     ["S"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
     ["P"] = { "<cmd>Telescope projects<cr>", "Projects" },
+    ["o"] = { "<cmd>SymbolsOutline<cr>", " Symbol Outline" },
+    ["H"] = { "<cmd>Telescope help_tags<cr>", "find help doc" },
 
     L = {
-      name = "Lazy",
+      name = "+Lazy",
       b = { "<cmd>Lazy build<cr>", "build" },
       i = { "<cmd>Lazy install<cr>", "Install" },
       s = { "<cmd>Lazy sync<cr>", "Sync" },
@@ -107,7 +109,7 @@ M.config = function()
       u = { "<cmd>Lazy update<cr>", "Update" },
     },
     f = {
-      name = "Find",
+      name = "+Find",
 
       s = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
       b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
@@ -120,10 +122,11 @@ M.config = function()
       C = { "<cmd>Telescope commands<cr>", "Commands" },
       X = { "<cmd>TroubleToggle workspace_diagnostics<cr>", "Workspace Diagnostics (Trouble)" },
       x = { "<cmd>TroubleToggle document_diagnostics<cr>", "Document Diagnostics (Trouble)" },
-      o = { "<cmd>lua require 'harpoon.ui'.toggle_quick_menu()", 'show file list by your mark' }
+      o = { "<cmd>lua require 'harpoon.ui'.toggle_quick_menu()<cr>", 'show file list by your mark' },
+      l = { "<cmd>TodoTelescope<cr>", "label" }
     },
     g = {
-      name = "Git",
+      name = "+Git",
       g = { "<cmd>Lazygit<CR>", "Lazygit" },
       j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
       k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
@@ -146,7 +149,7 @@ M.config = function()
     },
 
     l = {
-      name = "LSP",
+      name = "+LSP",
       a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
       d = {
         "<cmd>Telescope lsp_document_diagnostics<cr>",
@@ -177,24 +180,31 @@ M.config = function()
       },
     },
     s = {
-      name = "Split",
+      name = "+Split",
       h = { "<C-w>s", "垂直新增窗口" },
-      v = {"<C-w>v","水平新增窗口"},
+      v = { "<C-w>v", "水平新增窗口" },
     },
 
     t = {
-      name = "Terminal",
+      name = "+Terminal",
       f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
       h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
       v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
     },
     u = {
-      name = "UI",
+      name = "+UI",
       D = { "<cmd>require 'lsp_lines'.toggle<cr>", "Toggle lsp_lines" },
       l = { "<cmd>Lazy<cr>", "Lazy" },
     },
+    no = {
+      name = "+Notify",
+      D = { "<cmd>NoiceDisable<cr>", "Noice Disable" },
+      e = { "<cmd>NoiceEnable<cr>", "Noice Enable" },
+      t = { "<cmd>Noice telescope<cr>", "Show Notifications in Telescope" },
+      n = { "<cmd>Notifications<cr>", "Show Notifications" }
+    },
     m = {
-      name = "Mark",
+      name = "+Mark",
       a = { "<cmd>lua require 'harpoon.mark'.add_file()<cr>", "add Mark file" },
       l = { "<cmd>lua require 'harpoon.ui'.toggle_quick_menu()<cr>", "show all Mark" },
     }

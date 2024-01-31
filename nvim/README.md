@@ -11,9 +11,6 @@ cargo
 ripgrep
 
 optional:
-```
-
-```
 help init.lua -- to know config file path
 help options -- 一些环境参数 shou line num
 
@@ -23,21 +20,38 @@ live_grep (pacman -S ripgrep) --
 fd (pacman -S fd)
 tree-sitter (npm install tree-sitter-cli or cargo)
 anaconda (pacman -S anaconda conda init pip install neovim greenley pynvim,if ERROR http(conda remove curl))
-
 block
 ```
 
 ### Document introduction
-
+> 我对插件进行了自定义分组，每个分组有对应的介绍 
+```lua
+local components = {
+  "cmp",            -- Completion
+  "diagnostics",    -- Diagnostics
+  "expand",         -- Improve efficiency
+  "ui",             -- UI
+  "file",           -- File Improve
+  "git",            -- Not Yet
+  "snippets",       -- Code snippets
+  "terminal",       -- Terminal
+  "lsp",            -- Lsp plugins core
+}
+```
 ```
  nvim
 ├──  doc
 │  └──  plugins.md
-├──  ftplugin
+├──  ftplugin          -- 按照文件启动类型进行加载
 │  ├──  java.lua
 │  └──  python.lua
+├──  snippets          -- 自定义代码段
+│  ├──  lua.json
+│  ├──  package.json   -- 如果使用json配置，这个文件是必须的
+│  ├──  react-ts.json
+│  └──  typescript.json
 ├──  init.lua
-├──  lsp-settings
+├──  lsp-settings      -- nlsp json 配置文件path
 │  ├──  gopls.json
 │  ├──  jdtls.json
 │  ├──  lua_ls.json
@@ -102,7 +116,6 @@ block
 │  │  │  │  └──  yamlls.lua
 │  │  │  └──  utils.lua         -- lsp 共用方法抽取
 │  │  ├──  snippets             -- 代码片段
-│  │  │  ├──  luasnip.lua       -- 代码文档 快捷补全 such：sout == System.out.println("")
 │  │  │  ├──  pkg.lua
 │  │  │  └──  README.md
 │  │  ├──  terminal             -- 终端

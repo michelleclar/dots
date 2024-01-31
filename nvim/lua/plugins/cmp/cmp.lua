@@ -4,7 +4,6 @@ M.config = function()
   if not cmp_status_ok then
     return
   end
-
   local snip_status_ok, luasnip = pcall(require, "luasnip")
   if not snip_status_ok then
     return
@@ -19,6 +18,7 @@ M.config = function()
   local cmp_types = require("cmp.types.cmp")
 
   local ConfirmBehavior = cmp_types.ConfirmBehavior
+  local SelectBehavior = cmp_types.SelectBehavior
   local kind = require("comment.lsp_kind")
   local icons = require("comment.icons")
   local source_names = {
@@ -108,12 +108,24 @@ M.config = function()
       native_menu = false,
     },
     mapping = {
-      ["<C-k>"] = cmp.mapping.select_prev_item(),                         -- 上一个建议
-      ["<C-j>"] = cmp.mapping.select_next_item(),                         -- 下一个建议
-      ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }), -- documents 向下滚动
-      ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),  -- documents 向上滚动
+      ["<C-k>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "c" }), -- 上一个建议
+      ["<C-j>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "c" }), -- 下一个建议
+      ["<Down>"] = cmp.mapping(cmp.mapping.select_next_item { behavior = SelectBehavior.Select }, { "i" }),
+      ["<Up>"] = cmp.mapping(cmp.mapping.select_prev_item { behavior = SelectBehavior.Select }, { "i" }),
+      ["<C-n>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }), -- documents 向下滚动
+      ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),  -- documents 向上滚动
       ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),  -- 显示所有可用的建议
-      ["<C-y>"] = cmp.config.disable,                                     -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
+      -- ["<C-y>"] = cmp.config.disable,                                     -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
+      ["<C-y>"] = cmp.mapping {
+        i = cmp.mapping.confirm { behavior = ConfirmBehavior.Replace, select = false },
+        c = function(fallback)
+          if cmp.visible() then
+            cmp.confirm { behavior = ConfirmBehavior.Replace, select = false }
+          else
+            fallback()
+          end
+        end,
+      }, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
       ["<C-e>"] = cmp.mapping({
         i = cmp.mapping.abort(),
         c = cmp.mapping.close(),

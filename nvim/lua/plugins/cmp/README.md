@@ -1,22 +1,13 @@
-[nvim-autopairs](https://github.com/windwp/nvim-autopairs)
-> '括号'补全 <A-e> 
+### cmp
+> [nvim-cmp](hrsh7th/nvim-cmp)
 
-[nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
->
+### Enhance plug-in
+> [nvim-autopairs](https://github.com/windwp/nvim-autopairs),completion pair ,setting keymap is <A-e>
 
-[cmp-buffer](https://github.com/hrsh7th/cmp-buffer)
->buffer
+> [cmp-buffer](https://github.com/hrsh7th/cmp-buffer),completion buffer
 
-[cmp-path](https://github.com/hrsh7th/cmp-path)
->文件路径补全
+> [cmp-path](https://github.com/hrsh7th/cmp-path),completion path
 
-[cmp-cmdline](https://github.com/hrsh7th/cmp-cmdline)
-> 命令行补全
+> [cmp-cmdline](https://github.com/hrsh7th/cmp-cmdline),completion cmd
 
-[cmp_luasnip](https://github.com/saadparwaiz1/cmp_luasnip)
-> nvim 插件和配置补全
-
-[cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)
->
-
-
+> [cmp_luasnip](https://github.com/saadparwaiz1/cmp_luasnip),i don't know
