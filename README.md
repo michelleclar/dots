@@ -1,3 +1,5 @@
+# 稳定版
+
 ### archinux 安装
 
 ### archlinux 仓库
