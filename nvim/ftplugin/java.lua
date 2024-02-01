@@ -23,7 +23,7 @@ extendedClientCapabilities.resolveAdditionalTextEditsSupport = true
 local bundles = { vim.fn.glob(mason_path .. "/packages/java-test/extension/server/*.jar", true) }
 
 local extra_bundles =
-  vim.fn.glob(mason_path .. "/packages/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar", true)
+    vim.fn.glob(mason_path .. "/packages/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar", true)
 if #extra_bundles == 0 then
   extra_bundles = vim.fn.glob(
     mason_path .. "/packages/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar",
@@ -67,6 +67,20 @@ local config = {
       },
       configuration = {
         updateBuildConfiguration = "interactive",
+        runtimes = {
+          {
+            name = "JavaSE-11",
+            path = "/usr/lib/jvm/java-11-openjdk",
+          },
+          {
+            name = "JavaSE-17",
+            path = "/usr/lib/jvm/java-17-openjdk",
+          },
+          {
+            name = "JavaSE-21",
+            path = "/usr/lib/jvm/java-21-openjdk",
+          },
+        },
       },
       maven = {
         downloadSources = true,

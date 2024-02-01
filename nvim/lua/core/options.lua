@@ -51,6 +51,6 @@ o.wildmenu = true
 vim.g.transparent_background = true -- 透明背景
 vim.g.loaded_perl_provider = 0
 -- -- vim.g.ruby_host_prog = "/home/carl/.local/share/gem/ruby/3.0.0/bin/neovim-ruby-host"
--- vim.g.python3_host_prog = '/home/carl/.conda/envs/pynvim/bin/python'
+vim.g.python3_host_prog = '/opt/anaconda/envs/nvim/bin/python'
 vim.g.loaded_node_provider = "/home/carl/.nvm/versions/node/v18.18.1/bin/npm"
 -- end

@@ -99,7 +99,7 @@ M.config = function()
     ["P"] = { "<cmd>Telescope projects<cr>", "Projects" },
     ["o"] = { "<cmd>SymbolsOutline<cr>", " Symbol Outline" },
     ["H"] = { "<cmd>Telescope help_tags<cr>", "find help doc" },
-    ["?"] = {"<cmd>Cheat<cr>","Cheat"},
+    ["?"] = { "<cmd>Cheat<cr>", "Cheat" },
 
     L = {
       name = "+Lazy",
@@ -208,7 +208,36 @@ M.config = function()
       name = "+Mark",
       a = { "<cmd>lua require 'harpoon.mark'.add_file()<cr>", "add Mark file" },
       l = { "<cmd>lua require 'harpoon.ui'.toggle_quick_menu()<cr>", "show all Mark" },
-    }
+    },
+    R = {
+      name = " Replace",
+      f = { "<cmd>lua require('spectre').open_file_search()<cr>", "Current Buffer" },
+      p = { "<cmd>lua require('spectre').open()<cr>", "Project" },
+      w = { "<cmd>lua require('spectre').open_visual({select_word=true})<cr>", "Replace Word" },
+      s = {
+        function()
+          require("ssr").open()
+        end,
+        "Structural replace",
+      },
+    },
+    d = {
+      name = "Debug",
+      t = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Toggle Breakpoint" },
+      b = { "<cmd>lua require'dap'.step_back()<cr>", "Step Back" },
+      c = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
+      C = { "<cmd>lua require'dap'.run_to_cursor()<cr>", "Run To Cursor" },
+      d = { "<cmd>lua require'dap'.disconnect()<cr>", "Disconnect" },
+      g = { "<cmd>lua require'dap'.session()<cr>", "Get Session" },
+      i = { "<cmd>lua require'dap'.step_into()<cr>", "Step Into" },
+      o = { "<cmd>lua require'dap'.step_over()<cr>", "Step Over" },
+      u = { "<cmd>lua require'dap'.step_out()<cr>", "Step Out" },
+      p = { "<cmd>lua require'dap'.pause()<cr>", "Pause" },
+      r = { "<cmd>lua require'dap'.repl.toggle()<cr>", "Toggle Repl" },
+      s = { "<cmd>lua require'dap'.continue()<cr>", "Start" },
+      q = { "<cmd>lua require'dap'.close()<cr>", "Quit" },
+      U = { "<cmd>lua require'dapui'.toggle({reset = true})<cr>", "Toggle UI" },
+    },
   }
   --[[ vim.tbl_deep_extend("force","",mappings.u) ]]
   which_key.setup(setup)

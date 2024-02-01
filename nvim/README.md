@@ -24,7 +24,9 @@ block
 ```
 
 ### Document introduction
-> 我对插件进行了自定义分组，每个分组有对应的介绍 
+
+> 我对插件进行了自定义分组，每个分组有对应的介绍
+
 ```lua
 local components = {
   "cmp",            -- Completion
@@ -36,8 +38,10 @@ local components = {
   "snippets",       -- Code snippets
   "terminal",       -- Terminal
   "lsp",            -- Lsp plugins core
+  "debug",          -- Debug and Test
 }
 ```
+
 ```
  nvim
 ├──  doc
@@ -73,6 +77,11 @@ local components = {
 │  ├──  log              -- log print tool
 │  │  └──  init.lua
 │  ├──  plugins          -- 插件配置
+│  │  ├──  debug         -- test debug
+│  │  │  ├──  dap.lua    -- config all language
+│  │  │  ├──  neotest.lua -- test fiel
+│  │  │  ├──  pkg.lua
+│  │  │  └──  README.md
 │  │  ├──  cmp           -- 代码补全配置
 │  │  │  ├──  autopairs.lua  -- 括号补全
 │  │  │  ├──  cmp.lua        -- 补全主要配置
