@@ -29,15 +29,16 @@ local plugins = {
   "kdheepak/lazygit.nvim",
 }
 local components = {
-  "cmp",            -- completion
-  "diagnostics",    -- diagnostics
+  "cmp",            -- Completion
+  "diagnostics",    -- Diagnostics
   "expand",         -- Improve efficiency
   "ui",             -- UI
   "file",           -- File Improve
   "git",            -- Not Yet
-  "snippets",       -- code snippets
-  "terminal",       -- terminal
-  "lsp",            -- lsp plugins core
+  "snippets",       -- Code snippets
+  "terminal",       -- Terminal
+  "lsp",            -- Lsp plugins core
+  "debug",          -- Debug and Test
 }
 for _, completion in pairs(components) do
   --[[ vim.notify("loading " .. completion) ]]

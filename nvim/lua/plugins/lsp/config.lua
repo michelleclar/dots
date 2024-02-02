@@ -70,7 +70,7 @@ local skipped_servers = {
   "golangci_lint_ls",
   "jdtls",
   "pyright",
-  "rust_analyzer",
+  -- "rust_analyzer",
   "taplo",
   "texlab",
   "tsserver",

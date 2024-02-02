@@ -65,5 +65,14 @@ M.plugins_list = {
     "mfussenegger/nvim-jdtls",
     ft = "java"
   },
+  {
+    "mrcjkb/rustaceanvim",
+    version = "^3",
+    init = function()
+      require("plugins.lsp.rust_tools").config()
+    end,
+    ft = { "rust", "rs" },
+    enabled = true,
+  },
 }
 return M

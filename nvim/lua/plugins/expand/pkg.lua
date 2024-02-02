@@ -44,7 +44,27 @@ M.plugins_list = {
     },
     event = "User FileOpened",
   }, -- 语法高亮
-
+  {
+    "romgrk/nvim-treesitter-context",
+    config = function()
+      require("treesitter-context").setup {
+        enable = true,   -- Enable this plugin (Can be enabled/disabled later via commands)
+        throttle = true, -- Throttles plugin updates (may improve performance)
+        max_lines = 0,   -- How many lines the window should span. Values <= 0 mean no limit.
+        patterns = {     -- Match patterns for TS nodes. These get wrapped to match at word boundaries.
+          -- For all filetypes
+          -- Note that setting an entry here replaces all other patterns for this entry.
+          -- By setting the 'default' entry below, you can control which nodes you want to
+          -- appear in the context window.
+          default = {
+            'class',
+            'function',
+            'method',
+          },
+        },
+      }
+    end
+  },
   {
     "folke/which-key.nvim",
     config = function()
@@ -71,6 +91,8 @@ M.plugins_list = {
         },
       })
     end,
+    lazy = true,
+    event = "BufRead"
   }, -- strengthen clipboard
   -- auto change input
   {
@@ -78,6 +100,8 @@ M.plugins_list = {
     config = function()
       require("im_select").setup({})
     end,
+    lazy = true,
+    event = "InsertEnter",
   },
   -- { "echasnovski/mini.nvim", version = "*" },
   {
@@ -103,6 +127,45 @@ M.plugins_list = {
     event = "VeryLazy",
     cmd = { "HopChar1CurrentLineAC", "HopChar1CurrentLineBC", "HopChar2MW", "HopWordMW" },
   }, -- more cursor
+  {
+    "RishabhRD/nvim-cheat.sh",
+    dependencies = "RishabhRD/popfix",
+    config = function()
+      vim.g.cheat_default_window_layout = "vertical_split"
+    end,
+    lazy = true,
+    cmd = { "Cheat", "CheatWithoutComments", "CheatList", "CheatListWithoutComments" },
+    keys = "<leader>?",
+    enabled = true,
+  },
+
+  {
+    "windwp/nvim-spectre",
+    lazy = true,
+    config = function()
+      require("plugins.expand.spectre").config()
+    end,
+  },
+
+  {
+    "ThePrimeagen/refactoring.nvim",
+    lazy = true,
+    ft = { "typescript", "javascript", "lua", "c", "cpp", "go", "python", "java", "php" },
+    event = "BufReadPost",
+    config = function()
+      require("refactoring").setup {}
+    end,
+    enabled = true,
+  },
+  {
+    "kylechui/nvim-surround",
+    lazy = true,
+    keys = { "cs", "ds", "ys" },
+    config = function()
+      require("nvim-surround").setup({})
+    end,
+  },
+
   --[[ { ]]
   --[[ 	"iamcco/markdown-preview.nvim", ]]
   --[[ 	cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" }, ]]

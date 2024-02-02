@@ -104,7 +104,7 @@ M.config = function()
       prefer_local = "node_modules/.bin",
     },
     -- TODO: try these later on
-    -- nls.builtins.formatting.google_java_format,
+    nls.builtins.formatting.google_java_format,
     -- nls.builtins.code_actions.proselint,
     -- nls.builtins.diagnostics.proselint,
     -- HACK: using my own version for now

@@ -11,7 +11,7 @@ local launcher_path = vim.fn.glob(mason_path .. "/packages/jdtls/plugins/org.ecl
 
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
 CONFIG = "linux"
-WORKSPACE_PATH = home .. "/Workspace/"
+WORKSPACE_PATH = home .. "/workspace/"
 local workspace_dir = WORKSPACE_PATH .. project_name
 
 local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" }
@@ -19,7 +19,19 @@ local root_dir = require("jdtls.setup").find_root(root_markers)
 local extendedClientCapabilities = jdtls.extendedClientCapabilities
 extendedClientCapabilities.resolveAdditionalTextEditsSupport = true
 
+-- Run :MasonInstall java-test
 local bundles = { vim.fn.glob(mason_path .. "/packages/java-test/extension/server/*.jar", true) }
+
+local extra_bundles =
+    vim.fn.glob(mason_path .. "/packages/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar", true)
+if #extra_bundles == 0 then
+  extra_bundles = vim.fn.glob(
+    mason_path .. "/packages/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar",
+    true
+  )
+end
+vim.list_extend(bundles, { extra_bundles })
+
 local config = {
   cmd = {
     "java",
@@ -55,6 +67,20 @@ local config = {
       },
       configuration = {
         updateBuildConfiguration = "interactive",
+        runtimes = {
+          {
+            name = "JavaSE-11",
+            path = "/usr/lib/jvm/java-11-openjdk",
+          },
+          {
+            name = "JavaSE-17",
+            path = "/usr/lib/jvm/java-17-openjdk",
+          },
+          {
+            name = "JavaSE-21",
+            path = "/usr/lib/jvm/java-21-openjdk",
+          },
+        },
       },
       maven = {
         downloadSources = true,
@@ -77,7 +103,7 @@ local config = {
         enabled = true,
         settings = {
           profile = "GoogleStyle",
-          url = home .. "/.config/lvim/.java-google-formatter.xml",
+          url = home .. "/.config/nvim/.java-google-formatter.xml",
         },
       },
     },

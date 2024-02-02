@@ -24,6 +24,16 @@ keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
+keymap("n", "<C-'>", "zfi{", opts)
+keymap("n","<C-a>","ggVG",opts)
+-- zfi{      # 折叠光标当前所在的大括号{里面的文本
+-- zfa{      # 折叠光标当前所在的大括号{里面的文本和大括号本身
+-- zfG       # 从当前光标所在行开始，折叠到文件尾
+-- zf10j     # 从当前光标所在行开始，继续向下折叠10行
+-- zfip      # 折叠内部段落
+-- za    # 切换(alternative)折叠状态,只能用在已折叠/未折叠的行
+-- zR    # 展开所有折叠
+-- zM    # 收缩所有折叠
 -- keymap("n", "<leader>sh", "<C-w>s>") -- 垂直新增窗口 vertical
 -- keymap("n", "<leader>sv", "<C-w>v>") -- 水平新增窗口 Horizontal
 -- Resize with arrows
