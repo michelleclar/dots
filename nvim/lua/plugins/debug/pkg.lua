@@ -8,6 +8,7 @@ M.plugins_list = {
     lazy = true,
     dependencies = {
       "rcarriga/nvim-dap-ui",
+      "theHamsta/nvim-dap-virtual-text",
     },
     enabled = true,
   },
@@ -62,6 +63,28 @@ M.plugins_list = {
   { "nvim-neotest/neotest-go",     event = { "BufEnter *.go" } },
   { "nvim-neotest/neotest-python", event = { "BufEnter *.py" } },
   { "rouge8/neotest-rust",         event = { "BufEnter *.rs" } },
+  {
+    "theHamsta/nvim-dap-virtual-text",
+    config = function()
+      require("nvim-dap-virtual-text").setup({
+        enabled = true,
+        enable_commands = true,
+        highlight_changed_variables = true,
+        highlight_new_as_changed = false,
+        show_stop_reason = true,
+        commented = false,
+        only_first_definition = true,
+        all_references = false,
+        filter_references_pattern = '<module',
+        virt_text_pos = 'eol',
+        all_frames = false,
+        virt_lines = false,
+        virt_text_win_col = nil
+      })
+    end,
+    lazy = true,
+    enabled = true,
+  }
 
 }
 

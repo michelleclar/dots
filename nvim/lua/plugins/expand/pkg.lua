@@ -157,6 +157,15 @@ M.plugins_list = {
     end,
     enabled = true,
   },
+  {
+    "kylechui/nvim-surround",
+    lazy = true,
+    keys = { "cs", "ds", "ys" },
+    config = function()
+      require("nvim-surround").setup({})
+    end,
+  },
+
   --[[ { ]]
   --[[ 	"iamcco/markdown-preview.nvim", ]]
   --[[ 	cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" }, ]]

@@ -1,4 +1,5 @@
 local M = {}
+local home = vim.env.HOME
 local icons = require("comment.nerd_font")
 M.opts = {
   active = true,
@@ -80,7 +81,7 @@ M.opts = {
       },
       floating = {
         max_height = 0.9,
-        max_width = 0.5,   -- Floats will be treated as percentage of your screen.
+        max_width = 0.5, -- Floats will be treated as percentage of your screen.
         border = "rounded",
         mappings = {
           close = { "q", "<Esc>" },
@@ -88,8 +89,8 @@ M.opts = {
       },
       windows = { indent = 1 },
       render = {
-        max_type_length = nil,   -- Can be integer or nil.
-        max_value_lines = 100,   -- Can be integer or nil.
+        max_type_length = nil, -- Can be integer or nil.
+        max_value_lines = 100, -- Can be integer or nil.
       },
     },
   },
@@ -115,6 +116,7 @@ M.config = function()
   vim.fn.sign_define("DapStopped", M.opts.stopped)
 
 
+
   dap.configurations.lua = {
     {
       type = "nlua",
@@ -137,7 +139,7 @@ M.config = function()
   dap.adapters.nlua = function(callback, config)
     callback { type = "server", host = config.host or "127.0.0.1", port = config.port or 8086 }
   end
-
+  -- dap.configurations.rust = dap.configurations.cpp
   -- NOTE: if you want to use `dap` instead of `RustDebuggables` you can use the following configuration
   if vim.fn.executable "lldb-vscode" == 1 then
     dap.adapters.lldbrust = {
@@ -418,27 +420,35 @@ M.config = function()
     },
   }
 
-  local path = vim.fn.glob(mason_path .. "packages/codelldb/extension/")
-      or vim.fn.expand "~/" .. ".vscode/extensions/vadimcn.vscode-lldb-1.8.1/"
-  local lldb_cmd = path .. "adapter/codelldb"
+  -- local path = vim.fn.glob(mason_path .. "packages/codelldb/extension/")
+  --     or vim.fn.expand "~/" .. ".vscode/extensions/vadimcn.vscode-lldb-1.8.1/"
+  -- local lldb_cmd = path .. "adapter/codelldb"
+  local path = vim.fn.glob(mason_path .. "packages/cpptools/extension/")
+  local cpptools_cmd = path .. "debugAdapters/bin/OpenDebugAD7"
 
-  dap.adapters.codelldb = {
-    type = "server",
-    port = "${port}",
-    executable = {
-      -- CHANGE THIS to your path!
-      command = lldb_cmd,
-      args = { "--port", "${port}" },
-
-      -- On windows you may have to uncomment this:
-      -- detached = false,
-    },
+  dap.adapters.cppdbg = {
+    id = 'cppdbg',
+    type = 'executable',
+    command = cpptools_cmd,
   }
+  -- dap.adapters.codelldb = {
+  --   type = "server",
+  --   port = "${port}",
+  --   executable = {
+  --     -- CHANGE THIS to your path!
+  --     command = lldb_cmd,
+  --     args = { "--port", "${port}" },
+  --
+  --     -- On windows you may have to uncomment this:
+  --     -- detached = false,
+  --   },
+  -- }
 
   dap.configurations.cpp = {
     {
       name = "Launch file",
-      type = "codelldb",
+      type = "cppdbg",
+      -- type = "codelldb",
       request = "launch",
       program = function()
         return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")

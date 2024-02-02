@@ -187,10 +187,22 @@ M.config = function()
     },
 
     t = {
-      name = "+Terminal",
-      f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
-      h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
-      v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
+      name = "+Test",
+      f = {
+        "<cmd>lua require('neotest').run.run({vim.fn.expand('%'), env=require('user.ntest').get_env()})<cr>",
+        "File",
+      },
+      o = { "<cmd>lua require('neotest').output.open({ enter = true, short = false })<cr>", "Output" },
+      r = { "<cmd>lua require('neotest').run.run({env=require('user.ntest').get_env()})<cr>", "Run" },
+      a = { "<cmd>lua require('plugins.debug.neotest').run_all()<cr>", "Run All" },
+      c = { "<cmd>lua require('plugins.debug.neotest').cancel()<cr>", "Cancel" },
+      R = { "<cmd>lua require('plugins.debug.neotest').run_file_sync()<cr>", "Run Async" },
+      s = { "<cmd>lua require('neotest').summary.toggle()<cr>", "Summary" },
+      n = { "<cmd>lua require('neotest').jump.next({ status = 'failed' })<cr>", "jump to next failed" },
+      p = { "<cmd>lua require('neotest').jump.prev({ status = 'failed' })<cr>", "jump to previous failed" },
+      d = { "<cmd>lua require('neotest').run.run({ strategy = 'dap' })<cr>", "Dap Run" },
+      x = { "<cmd>lua require('neotest').run.stop()<cr>", "Stop" },
+      w = { "<cmd>lua require('neotest').watch.watch()<cr>", "Watch" },
     },
     u = {
       name = "+UI",
