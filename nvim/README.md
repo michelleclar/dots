@@ -1,5 +1,6 @@
+### Introduction
+> This Nvim configuration foundation supports Java, Python, Go, C/C++, and Rust development.
 ### 1 Check Dependencies
-
 ```shell
 must:
 python3
