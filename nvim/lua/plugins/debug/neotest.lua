@@ -81,7 +81,7 @@ end
 M.run_all = function()
   local neotest = require "neotest"
 
-  for _, adapter_id in ipairs(neotest.run.adapters()) do
+  for _, adapter_id in ipairs(neotest.run.adapters_ids()) do
     neotest.run.run { suite = true, adapter = adapter_id }
   end
 end

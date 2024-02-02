@@ -376,3 +376,26 @@ require("plugins.lsp.manager").setup("mm0_ls")
 
 require("plugins.lsp.manager").setup("matlab_ls")
 
+gradle_ls
+gradle_ls
+gradle_ls
+gradle_ls
+gradle_ls
+gradle_ls
+gradle_ls
+gradle_ls
+pyright
+pyright
+pyright
+pyright
+pyright
+pyright
+pyright
+pyright
+pyright
+pyright
+pyright
+pyright
+pyright
+pyright
+pyright

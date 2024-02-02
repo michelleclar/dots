@@ -1,5 +1,7 @@
 ### Introduction
 > This Nvim configuration foundation supports Java, Python, Go, C/C++, and Rust development.
+> Reference configuration [LunarVim](https://github.com/LunarVim/LunarVim)
+
 ### 1 Check Dependencies
 ```shell
 must:
@@ -23,11 +25,9 @@ tree-sitter (npm install tree-sitter-cli or cargo)
 anaconda (pacman -S anaconda conda init pip install neovim greenley pynvim,if ERROR http(conda remove curl))
 block
 ```
-
 ### Document introduction
 
-> 我对插件进行了自定义分组，每个分组有对应的介绍
-
+> I personally prefer to group things by their function. 
 ```lua
 local components = {
   "cmp",            -- Completion
