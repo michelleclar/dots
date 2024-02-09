@@ -25,7 +25,7 @@ keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 keymap("n", "<C-'>", "zfi{", opts)
-keymap("n","<C-a>","ggVG",opts)
+keymap("n", "<C-a>", "ggVG", opts)
 -- zfi{      # 折叠光标当前所在的大括号{里面的文本
 -- zfa{      # 折叠光标当前所在的大括号{里面的文本和大括号本身
 -- zfG       # 从当前光标所在行开始，折叠到文件尾
@@ -94,7 +94,27 @@ keymap("x", "<A-k>", ":m '<-2<CR>gv=gv", opts)
 -- keymap("n", "<leader>fb", "<cmd>Telescope buffers<cr>", opts) -- 查找已经打开的buffers
 -- keymap("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", opts) -- 查找帮助文档
 keymap("n", "<A-q>", "<cmd>lua require('util').delete_buffer()<cr>", opts) -- close buffer
-
+keymap("n", "<F5>", "<cmd>lua require'dap'.continue()<cr>", opts)
+keymap("n", "<F7>", "<cmd>lua require'dap'.step_into()<cr>", opts)
+keymap("n", "<F8>", "<cmd>lua require'dap'.step_over()<cr>", opts)
+keymap("n", "<F6>", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts)
+-- d = {
+--       name = "Debug",
+--       t = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Toggle Breakpoint" },
+--       b = { "<cmd>lua require'dap'.step_back()<cr>", "Step Back" },
+--       c = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
+--       C = { "<cmd>lua require'dap'.run_to_cursor()<cr>", "Run To Cursor" },
+--       d = { "<cmd>lua require'dap'.disconnect()<cr>", "Disconnect" },
+--       g = { "<cmd>lua require'dap'.session()<cr>", "Get Session" },
+--       i = { "<cmd>lua require'dap'.step_into()<cr>", "Step Into" },
+--       o = { "<cmd>lua require'dap'.step_over()<cr>", "Step Over" },
+--       u = { "<cmd>lua require'dap'.step_out()<cr>", "Step Out" },
+--       p = { "<cmd>lua require'dap'.pause()<cr>", "Pause" },
+--       r = { "<cmd>lua require'dap'.repl.toggle()<cr>", "Toggle Repl" },
+--       s = { "<cmd>lua require'dap'.continue()<cr>", "Start" },
+--       q = { "<cmd>lua require'dap'.close()<cr>", "Quit" },
+--       U = { "<cmd>lua require'dapui'.toggle({reset = true})<cr>", "Toggle UI" },
+--     },
 -- Lua
 --[[ vim.keymap.set("n", "<leader>xx", function() require("trouble").toggle() end) ]]
 --[[ vim.keymap.set("n", "<leader>xw", function() require("trouble").toggle("workspace_diagnostics") end) ]]
