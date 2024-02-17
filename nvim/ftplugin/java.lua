@@ -11,7 +11,7 @@ local launcher_path = vim.fn.glob(mason_path .. "/packages/jdtls/plugins/org.ecl
 
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
 CONFIG = "linux"
-WORKSPACE_PATH = home .. "/workspace/"
+WORKSPACE_PATH = home .. "/workspace/java/.java/"
 local workspace_dir = WORKSPACE_PATH .. project_name
 
 local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" }
@@ -42,6 +42,7 @@ local config = {
     "-Dlog.level=ALL",
     "-javaagent:" .. mason_path .. "/packages/jdtls/lombok.jar",
     "-Xms1g",
+    "-Xmx2g",
     "--add-modules=ALL-SYSTEM",
     "--add-opens",
     "java.base/java.util=ALL-UNNAMED",
