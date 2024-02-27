@@ -95,6 +95,7 @@ M.config = function()
       "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
       "Find files",
     },
+    ["N"] = { "<cmd>NoiceTelescope<cr>", "Show Noice" },
     ["S"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
     ["P"] = { "<cmd>Telescope projects<cr>", "Projects" },
     ["o"] = { "<cmd>SymbolsOutline<cr>", " Symbol Outline" },

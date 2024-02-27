@@ -44,9 +44,9 @@ M.plugins_list = {
   { "tamago324/nlsp-settings.nvim", cmd = "LspSettings", lazy = true },
   {
     "nvimtools/none-ls.nvim",
-    config = function()
-      require("plugins.lsp.null_ls").config()
-    end,
+    -- config = function()
+    --   require("plugins.lsp.null_ls").config()
+    -- end,
     lazy = true,
   },
   {

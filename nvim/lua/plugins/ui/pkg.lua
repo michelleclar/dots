@@ -106,7 +106,7 @@ M.plugins_list = {
     "folke/noice.nvim",
     enabled = true,
     lazy = true,
-    event = { "BufRead", "BufNewFile" },
+    event = "VeryLazy",
     dependencies = { "rcarriga/nvim-notify", "MunifTanjim/nui.nvim" },
     config = function()
       require("noice").setup({
@@ -135,6 +135,17 @@ M.plugins_list = {
         },
       })
     end,
+  },
+  {
+    "rcarriga/nvim-notify",
+    opts = {
+      stages = "static",
+      render = "compact",
+      max_width = "30",
+      fps = 5,
+      level = 1,
+      timout = 1000,
+    }
   }
 }
 return M
