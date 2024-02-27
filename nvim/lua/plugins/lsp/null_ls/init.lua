@@ -37,7 +37,7 @@ M.config = function()
       prefer_local = "node_modules/.bin",
     },
     -- nls.builtins.formatting.stylua,
-    nls.builtins.formatting.npm_groovy_lint.with {filetypes = {"groovy"}},
+    nls.builtins.formatting.npm_groovy_lint.with { filetypes = { "groovy" } },
     nls.builtins.formatting.goimports,
     nls.builtins.formatting.gofumpt,
     nls.builtins.formatting.cmake_format,

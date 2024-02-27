@@ -187,7 +187,7 @@ function M.setup()
     require("nlspsettings").setup(lsp_config.nlsp_settings.setup)
   end)
   -- NOTE: this remove lazy
-  -- require("plugins.lsp.null-ls").setup()
+  require("plugins.lsp.null_ls").config()
 
   autocmds.configure_format_on_save()
 

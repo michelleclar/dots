@@ -5,7 +5,7 @@ M.opts = {
   arg = "leetcode.nvim",
 
   ---@type lc.lang
-  lang = "cpp",
+  lang = "java",
 
   cn = { -- leetcode.cn
     enabled = true, ---@type boolean
@@ -22,8 +22,15 @@ M.opts = {
   ---@type boolean
   logging = true,
 
-  injector = {}, ---@type table<lc.lang, lc.inject>
-
+  injector = { ---@type table<lc.lang, lc.inject>
+    ["cpp"] = {
+      before = { "#include <bits/stdc++.h>", "using namespace std;" },
+      after = "int main() {}",
+    },
+    ["java"] = {
+      before = "import java.util.*;",
+    },
+  },
   cache = {
     update_interval = 60 * 60 * 24 * 7, ---@type integer 7 days
   },
