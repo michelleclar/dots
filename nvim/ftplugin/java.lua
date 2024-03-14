@@ -10,6 +10,7 @@ local mason_path = vim.fn.glob(vim.fn.stdpath "data" .. "/mason")
 local launcher_path = vim.fn.glob(mason_path .. "/packages/jdtls/plugins/org.eclipse.equinox.launcher_*.jar")
 
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
+local config_path = vim.fn.stdpath("config")
 CONFIG = "linux"
 WORKSPACE_PATH = home .. "/workspace/java/.java/"
 local workspace_dir = WORKSPACE_PATH .. project_name
@@ -21,6 +22,7 @@ extendedClientCapabilities.resolveAdditionalTextEditsSupport = true
 
 -- Run :MasonInstall java-test
 local bundles = { vim.fn.glob(mason_path .. "/packages/java-test/extension/server/*.jar", true) }
+vim.list_extend(bundles, vim.split(vim.fn.glob(config_path .. "/.vscode-java-test/server/*.jar", 1), "\n"))
 
 local extra_bundles =
     vim.fn.glob(mason_path .. "/packages/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar", true)

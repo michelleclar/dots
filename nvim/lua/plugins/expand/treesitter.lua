@@ -8,7 +8,7 @@ M.opts = {
     "python",
     "java",
     "json",
-    "javascript",
+    -- "javascript",
     "c",
     "cpp",
     "groovy"
