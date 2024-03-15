@@ -73,7 +73,7 @@ local skipped_servers = {
   -- "rust_analyzer",
   "taplo",
   "texlab",
-  "tsserver",
+  -- "tsserver",
   "yamlls",
 }
 

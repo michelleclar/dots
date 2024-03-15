@@ -74,5 +74,24 @@ M.plugins_list = {
     ft = { "rust", "rs" },
     enabled = true,
   },
+  -- { "maxmellon/vim-jsx-pretty" },
+  {
+    "pmizio/typescript-tools.nvim",
+    ft = {
+      "javascript",
+      "javascriptreact",
+      "javascript.jsx",
+      "typescript",
+      "typescriptreact",
+      "typescript.tsx",
+    },
+    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+    lazy = true,
+    config = function()
+      require("plugins.lsp.typtools").config()
+    end,
+    enabled = true,
+  }
+
 }
 return M

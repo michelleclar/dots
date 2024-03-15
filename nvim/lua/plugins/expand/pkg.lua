@@ -27,6 +27,9 @@ M.plugins_list = {
   {
     "nvim-treesitter/nvim-treesitter",
     config = function()
+      local utils = require "util"
+      local path = utils.join_paths(vim.call("stdpath", "data"), "site", "pack", "lazy", "opt", "nvim-treesitter")
+      vim.opt.rtp:prepend(path) -- treesitter needs to be before nvim's runtime in rtp
       require("plugins.expand.treesitter").config()
     end,
     -- build = ":TSUpdate",
@@ -179,7 +182,27 @@ M.plugins_list = {
       "nvim-tree/nvim-web-devicons",
     },
     opts = require("plugins.expand.leetcode").opts
-  }
+  },
+  {
+    "sindrets/diffview.nvim",
+    lazy = true,
+    cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewFileHistory" },
+    keys = { "<leader>gd", "<leader>gh" },
+    config = function()
+      require("plugins.expand.diffview").config()
+    end,
+    enabled = true,
+  },
+  {
+    "SmiteshP/nvim-gps",
+    module_pattern = { "gps", "nvim-gps" },
+    config = function()
+      require("plugins.expand.gps").config()
+    end,
+    dependencies = "nvim-treesitter/nvim-treesitter",
+    event = { "InsertEnter", "CursorHoldI" },
+    enabled = false,
+  },
 
   --[[ { ]]
   --[[ 	"iamcco/markdown-preview.nvim", ]]
