@@ -94,6 +94,8 @@ M.config = function()
     --   filetypes = { "markdown" },
     --   extra_args = { "--config", vale_config },
     -- },
+    nls.builtins.diagnostics.npm_groovy_lint,
+    -- nls.builtins.diagnostics.tsserver
     nls.builtins.code_actions.shellcheck,
     -- WARN: broken on neovim-head because of `nvim.treesitter.get_node_at_pos` being deprecated
     -- nls.builtins.code_actions.gomodifytags,
@@ -124,7 +126,6 @@ M.config = function()
   end
 
   -- you can either config null-ls itself
-
   nls.setup {
     on_attach = require("plugins.lsp").common_on_attach,
     debounce = 150,

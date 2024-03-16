@@ -91,7 +91,7 @@ M.plugins_list = {
       require("plugins.lsp.typtools").config()
     end,
     enabled = true,
-  }
+  },
 
 }
 return M

@@ -84,7 +84,28 @@ M.plugins_list = {
     end,
     lazy = true,
     enabled = true,
-  }
+  },
+  {
+    "mxsdev/nvim-dap-vscode-js",
+    ft = {
+      "javascript",
+      "javascriptreact",
+      "javascript.jsx",
+      "typescript",
+      "typescriptreact",
+      "typescript.tsx",
+    },
+    lazy = true,
+    event = { "BufReadPre", "BufNew" },
+    config = function()
+      require("dap-vscode-js").setup {
+        debugger_path = vim.fn.stdpath "data" .. "/mason/packages/js-debug-adapter",
+        debugger_cmd = { "js-debug-adapter" },
+        adapters = { "pwa-node", "pwa-chrome", "pwa-msedge", "node-terminal", "pwa-extensionHost" },
+      }
+    end,
+    enabled = true,
+  },
 
 }
 

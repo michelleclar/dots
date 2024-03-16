@@ -2,10 +2,11 @@ local M = {}
 
 M.config = function()
   local status_ok, tools = pcall(require, "typescript-tools")
+
   if not status_ok then
     return
   end
-  local ok, lsp = pcall(require, "plugin.lsp")
+  local ok, lsp = pcall(require, "plugins.lsp")
   if not ok then
     return
   end
@@ -25,14 +26,14 @@ M.config = function()
       tsserver_file_preferences = {
         importModuleSpecifierPreference = "non-relative",
       },
-      -- tsserver_locale = "zh-cn",
-      tsserver_locale = "en",
+      tsserver_locale = "zh-cn",
+      -- tsserver_locale = "en",
       -- mirror of VSCode's `typescript.suggest.completeFunctionCalls`
       complete_function_calls = false,
       include_completions_with_insert_text = true,
       -- WARNING: Experimental feature also in VSCode, because it might hit performance of server.
       -- possible values: ("off"|"all"|"implementations_only"|"references_only")
-      code_lens = "references_only",
+      code_lens = "off",
       disable_member_code_lens = true,
       -- JSXCloseTag
       -- WARNING: it is disabled by default (maybe you configuration or distro already uses nvim-ts-autotag,
@@ -43,6 +44,8 @@ M.config = function()
       },
     },
   }
+
+  require("util").writeFile(nil, 'typescript')
   tools.setup(opts)
 end
 
