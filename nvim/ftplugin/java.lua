@@ -44,7 +44,7 @@ local config = {
     "-Dlog.level=ALL",
     "-javaagent:" .. mason_path .. "/packages/jdtls/lombok.jar",
     "-Xms1g",
-    "-Xmx2g",
+    -- "-Xmx2g",
     "--add-modules=ALL-SYSTEM",
     "--add-opens",
     "java.base/java.util=ALL-UNNAMED",
@@ -57,6 +57,16 @@ local config = {
     "-data",
     workspace_dir,
   },
+
+  on_attach = function(client, bufnr)
+    local _, _ = pcall(vim.lsp.codelens.refresh)
+    require("jdtls.dap").setup_dap_main_class_configs()
+    require("jdtls").setup_dap { hotcodereplace = "auto" }
+    require("plugins.lsp").on_attach(client, bufnr)
+  end,
+  on_init = require("plugins.lsp").common_on_init,
+  on_exit = require("plugins.lsp").common_on_exit,
+  capabilities = require("plugins.lsp").common_capabilities(),
   root_dir = root_dir,
   settings = {
     java = {

@@ -77,5 +77,5 @@ function M.write_file(path, txt, flag)
     end)
   end)
 end
-
+M.load_mode = require("util.keymapUtils").load_mode
 return M

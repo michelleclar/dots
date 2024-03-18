@@ -94,7 +94,7 @@ M.config = function()
     --   filetypes = { "markdown" },
     --   extra_args = { "--config", vale_config },
     -- },
-    nls.builtins.diagnostics.npm_groovy_lint,
+    nls.builtins.diagnostics.npm_groovy_lint.with { filetypes = { "groovy" } },
     -- nls.builtins.diagnostics.tsserver
     nls.builtins.code_actions.shellcheck,
     -- WARN: broken on neovim-head because of `nvim.treesitter.get_node_at_pos` being deprecated
