@@ -20,7 +20,13 @@
       {
         "language": "typescriptreact",
         "path": "./react-ts.json"
+      },
+      {
+        "language": "java",
+        "path": "./java.json"
       }
+
     ]
   }
 }
+
