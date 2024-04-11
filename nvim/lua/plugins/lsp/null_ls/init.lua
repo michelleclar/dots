@@ -79,10 +79,10 @@ M.config = function()
       end,
       extra_args = { "--metrics", "off", "--exclude", "vendor", "--config", semgrep_rule_folder },
     },
-    nls.builtins.diagnostics.shellcheck,
+    -- nls.builtins.diagnostics.shellcheck,
     -- nls.builtins.diagnostics.luacheck,
     nls.builtins.diagnostics.vint,
-    nls.builtins.diagnostics.chktex,
+    -- nls.builtins.diagnostics.chktex,
     -- Support for nix files
     nls.builtins.diagnostics.deadnix,
     nls.builtins.diagnostics.statix,
@@ -95,7 +95,7 @@ M.config = function()
     --   extra_args = { "--config", vale_config },
     -- },
     -- nls.builtins.diagnostics.npm_groovy_lint.with { filetypes = { "groovy" } },
-    nls.builtins.code_actions.shellcheck,
+    -- nls.builtins.code_actions.shellcheck,
     -- WARN: broken on neovim-head because of `nvim.treesitter.get_node_at_pos` being deprecated
     -- nls.builtins.code_actions.gomodifytags,
     -- nls.builtins.code_actions.eslint_d.with {

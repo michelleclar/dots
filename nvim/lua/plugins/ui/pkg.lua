@@ -114,6 +114,9 @@ M.plugins_list = {
           progress = {
             enabled = false,
           },
+          signature ={
+            enabled = false,
+          }
         },
         presets = {
           bottom_search = false,
