@@ -98,14 +98,14 @@ M.plugins_list = {
     event = "BufRead"
   }, -- strengthen clipboard
   -- auto change input
-  {
-    "keaising/im-select.nvim",
-    config = function()
-      require("im_select").setup({})
-    end,
-    lazy = true,
-    event = "InsertEnter",
-  },
+  -- {
+  --   "keaising/im-select.nvim",
+  --   config = function()
+  --     require("im_select").setup({})
+  --   end,
+  --   lazy = true,
+  --   event = "InsertEnter",
+  -- },
   -- { "echasnovski/mini.nvim", version = "*" },
   {
     "ThePrimeagen/harpoon",

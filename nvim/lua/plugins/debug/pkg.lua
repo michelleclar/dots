@@ -106,6 +106,7 @@ M.plugins_list = {
     end,
     enabled = true,
   },
+  { "nvim-neotest/nvim-nio" }
 
 }
 

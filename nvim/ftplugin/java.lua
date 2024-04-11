@@ -33,7 +33,7 @@ if #extra_bundles == 0 then
   )
 end
 vim.list_extend(bundles, { extra_bundles })
--- NOTE:https://github.com/eclipse-jdtls/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
+
 local config = {
   cmd = {
     "java",
@@ -44,7 +44,7 @@ local config = {
     "-Dlog.level=ALL",
     "-javaagent:" .. mason_path .. "/packages/jdtls/lombok.jar",
     "-Xms1g",
-    -- "-Xmx2g",
+    "-Xmx2g",
     "--add-modules=ALL-SYSTEM",
     "--add-opens",
     "java.base/java.util=ALL-UNNAMED",
@@ -60,7 +60,7 @@ local config = {
 
   on_attach = function(client, bufnr)
     local _, _ = pcall(vim.lsp.codelens.refresh)
-    require("jdtls.dap").setup_dap_main_class_configs()
+    -- require("jdtls.dap").setup_dap_main_class_configs()
     require("jdtls").setup_dap { hotcodereplace = "auto" }
     require("plugins.lsp").on_attach(client, bufnr)
   end,
@@ -89,10 +89,10 @@ local config = {
             name = "JavaSE-17",
             path = "/usr/lib/jvm/java-17-openjdk",
           },
-          -- {
-          --   name = "JavaSE-21",
-          --   path = "/usr/lib/jvm/java-21-openjdk",
-          -- },
+          {
+            name = "JavaSE-21",
+            path = "/usr/lib/jvm/java-21-openjdk",
+          },
         },
       },
       maven = {
