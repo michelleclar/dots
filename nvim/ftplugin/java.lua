@@ -33,7 +33,7 @@ if #extra_bundles == 0 then
   )
 end
 vim.list_extend(bundles, { extra_bundles })
-
+-- NOTE:https://github.com/eclipse-jdtls/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
 local config = {
   cmd = {
     "java",
@@ -89,10 +89,10 @@ local config = {
             name = "JavaSE-17",
             path = "/usr/lib/jvm/java-17-openjdk",
           },
-          {
-            name = "JavaSE-21",
-            path = "/usr/lib/jvm/java-21-openjdk",
-          },
+          -- {
+          --   name = "JavaSE-21",
+          --   path = "/usr/lib/jvm/java-21-openjdk",
+          -- },
         },
       },
       maven = {
