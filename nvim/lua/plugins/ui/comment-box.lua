@@ -1,10 +1,55 @@
 local M = {}
 M.config = function()
-	local status_ok, comment_box = pcall(require, "comment-box")
-	if not status_ok then
-		return
-	end
-	comment_box.setup()
+  local status_ok, comment_box = pcall(require, "comment-box")
+  if not status_ok then
+    return
+  end
+  local wkstatus_ok, which_key = pcall(require, "which-key")
+  if not wkstatus_ok then
+    return
+  end
+
+  local opts = {
+    mode = "n",
+    prefix = "<leader>",
+    buffer = nil,
+    silent = true,
+    noremap = true,
+    nowait = true,
+  }
+
+  local vopts = {
+    mode = "v",
+    prefix = "<leader>",
+    buffer = nil,
+    silent = true,
+    noremap = true,
+    nowait = true,
+  }
+
+  local mappings = {
+    c = {
+      name = " □  Boxes",
+      b = { "<Cmd>CBccbox<CR>", "Box Title" },
+      t = { "<Cmd>CBllline<CR>", "Titled Line" },
+      l = { "<Cmd>CBline<CR>", "Simple Line" },
+      m = { "<Cmd>CBllbox14<CR>", "Marked" },
+    },
+  }
+
+  local vmappings = {
+    c = {
+      name = " □  Boxes",
+      b = { "<Cmd>CBccbox<CR>", "Box Title" },
+      t = { "<Cmd>CBllline<CR>", "Titled Line" },
+      l = { "<Cmd>CBline<CR>", "Simple Line" },
+      m = { "<Cmd>CBllbox14<CR>", "Marked" },
+    },
+  }
+
+  which_key.register(mappings, opts)
+  which_key.register(vmappings, vopts)
+  comment_box.setup()
 end
 return M
 --[[ local keymap = vim.keymap.set ]]
@@ -52,3 +97,9 @@ return M
 --  │ or                                                       │
 --  │ :lua require("comment-box").llbox(17)                    │
 --  ╰──────────────────────────────────────────────────────────╯
+
+--          ╭─────────────────────────────────────────────────────────╮
+--          │                                                         │
+--          ╰─────────────────────────────────────────────────────────╯
+-- ──────────────────────────────────────────────────────────────────────
+-- ──────────────────────────────────────────────────────────────────────

@@ -87,12 +87,12 @@ local config = {
           },
           {
             name = "JavaSE-17",
-            path = "/usr/lib/jvm/java-17-openjdk",
+            path = home .. "/.sdkman/candidates/java/17.0.9-tem",
           },
-          {
-            name = "JavaSE-21",
-            path = "/usr/lib/jvm/java-21-openjdk",
-          },
+          -- {
+          --   name = "JavaSE-21",
+          --   path = home .. "/.sdkman/candidates/java/21.0.2-tem",
+          -- },
         },
       },
       maven = {
