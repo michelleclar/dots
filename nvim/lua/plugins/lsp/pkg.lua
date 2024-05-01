@@ -41,7 +41,7 @@ M.plugins_list = {
     event = "User FileOpened",
     lazy = true,
   },
-  { "tamago324/nlsp-settings.nvim", cmd = "LspSettings", lazy = true },
+  { "tamago324/nlsp-settings.nvim",           cmd = "LspSettings", lazy = true },
   {
     "nvimtools/none-ls.nvim",
     -- config = function()
@@ -92,6 +92,15 @@ M.plugins_list = {
     end,
     enabled = true,
   },
+  {
+    "luckasRanarison/tailwind-tools.nvim",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    opts = {
+      custom_filetypes = {
+        "tsx", "css", "html"
+      }
+    } -- your configuration
+  }
 
 }
 return M

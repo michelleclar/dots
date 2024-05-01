@@ -3,7 +3,7 @@ local M = {}
 M.plugins_list = {
   {
     "windwp/nvim-autopairs",
-    config = function ()
+    config = function()
       require("plugins.cmp.autopairs").config()
     end,
     event = "InsertEnter",
@@ -11,11 +11,12 @@ M.plugins_list = {
   }, -- 自动补全括号
   {
     "hrsh7th/nvim-cmp",
-    config = function ()
+    config = function()
       require("plugins.cmp.cmp").config()
     end,
     event = { "InsertEnter", "CmdlineEnter" },
     dependencies = {
+      "luckasRanarison/tailwind-tools.nvim",
       "cmp-nvim-lsp",
       "cmp_luasnip",
       "cmp-buffer",

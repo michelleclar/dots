@@ -32,7 +32,7 @@ o.relativenumber = true -- set relative numbered lines,设置相对行编号
 o.numberwidth = 4       -- set number column width to 2 {default 4},数字列宽设为2
 
 o.signcolumn = "auto"   -- yes|auto -- always show the sign column, otherwise it would shift the text each time,始终显示符号列
-o.wrap = false          -- display lines as one long line
+o.wrap = true           -- display lines as one long line
 o.linebreak = true      -- companion to wrap, don't split words
 o.scrolloff = 8         -- minimal number of screen lines to keep above and below the cursor,保持光标上下至少8行屏幕
 o.sidescrolloff = 8     -- minimal number of screen columns either side of cursor if wrap is `false`
