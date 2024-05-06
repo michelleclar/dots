@@ -41,7 +41,7 @@ M.plugins_list = {
     event = "User FileOpened",
     lazy = true,
   },
-  { "tamago324/nlsp-settings.nvim",           cmd = "LspSettings", lazy = true },
+  { "tamago324/nlsp-settings.nvim", cmd = "LspSettings", lazy = true },
   {
     "nvimtools/none-ls.nvim",
     -- config = function()
@@ -95,11 +95,41 @@ M.plugins_list = {
   {
     "luckasRanarison/tailwind-tools.nvim",
     dependencies = { "nvim-treesitter/nvim-treesitter" },
-    opts = {
-      custom_filetypes = {
-        "tsx", "css", "html"
-      }
-    } -- your configuration
+    opts = ---@type TailwindTools.Option
+    {
+      document_color = {
+        enabled = true, -- can be toggled by commands
+        kind = "background", -- "inline" | "foreground" | "background"
+        inline_symbol = "󰝤 ", -- only used in inline mode
+        debounce = 200, -- in milliseconds, only applied in insert mode
+      },
+      conceal = {
+        enabled = false, -- can be toggled by commands
+        min_length = nil, -- only conceal classes exceeding the provided length
+        symbol = "󱏿", -- only a single character is allowed
+        highlight = { -- extmark highlight options, see :h 'highlight'
+          fg = "#38BDF8",
+        },
+      },
+      custom_filetypes = {} -- see the extension section to learn how it works
+    }                       -- your configuration
+  },
+  {
+    "trunk-io/neovim-trunk",
+    lazy = false,
+    -- optionally pin the version
+    -- tag = "v0.1.1",
+    -- these are optional config arguments (defaults shown)
+    config = {
+      -- trunkPath = "trunk",
+      -- lspArgs = {},
+      -- formatOnSave = true,
+      -- formatOnSaveTimeout = 10, -- seconds
+      -- logLevel = "info"
+    },
+    main = "trunk",
+    dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+    enabled = false
   }
 
 }

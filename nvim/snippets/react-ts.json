@@ -1,15 +1,11 @@
 {
   "destructuring of props": {
     "prefix": "dp",
-    "body": [
-      "const { ${1:name} } = this.props"
-    ]
+    "body": ["const { ${1:name} } = this.props"]
   },
   "destructuring of state": {
     "prefix": "ds",
-    "body": [
-      "const { ${1:name} } = this.state"
-    ]
+    "body": ["const { ${1:name} } = this.state"]
   },
   "reactClassCompoment": {
     "prefix": "rcc",
@@ -74,6 +70,11 @@
   "shouldComponentUpdate": {
     "prefix": "scu",
     "body": "shouldComponentUpdate (nextProps, nextState) {\n\t$0\n}\n",
+    "description": "Invoked before rendering when new props or state are being received. "
+  },
+  "shouldFunctonComponent": {
+    "prefix": "sfc",
+    "body": "const ${1} = () => {\n\treturn (${2});\n}\n\n\nexport default ${3}",
     "description": "Invoked before rendering when new props or state are being received. "
   },
   "componentWillUpdate": {
@@ -293,11 +294,7 @@
   },
   "useEffect": {
     "prefix": "ue",
-    "body": [
-      "useEffect(() => {",
-      "\t$1",
-      "}, [${3:dependencies}])$0"
-    ],
+    "body": ["useEffect(() => {", "\t$1", "}, [${3:dependencies}])$0"],
     "description": "React useEffect() hook"
   },
   "useEffect with cleanup": {
@@ -323,16 +320,12 @@
   },
   "useContext": {
     "prefix": "uc",
-    "body": [
-      "const $1 = useContext($2)$0"
-    ],
+    "body": ["const $1 = useContext($2)$0"],
     "description": "React useContext() hook"
   },
   "useRef": {
     "prefix": "ur",
-    "body": [
-      "const ${1:elName}El = useRef(null)$0"
-    ],
+    "body": ["const ${1:elName}El = useRef(null)$0"],
     "description": "React useContext() hook"
   },
   "useCallback": {

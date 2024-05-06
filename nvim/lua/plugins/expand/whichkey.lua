@@ -208,6 +208,7 @@ M.opts = {
         "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
         "Workspace Symbols",
       },
+      R = { "<cmd>lua require('plugins.lsp').generate_templates()<cr>","gen templates" },
     },
     s = {
       name = "+Split",

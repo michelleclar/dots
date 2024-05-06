@@ -74,10 +74,10 @@ end
 local function launch_server(server_name, config)
   pcall(function()
     local command = config.cmd
-      or (function()
-        local default_config = require("lspconfig.server_configurations." .. server_name).default_config
-        return default_config.cmd
-      end)()
+        or (function()
+          local default_config = require("lspconfig.server_configurations." .. server_name).default_config
+          return default_config.cmd
+        end)()
     -- some servers have dynamic commands defined with on_new_config
     if type(command) == "table" and type(command[1]) == "string" and vim.fn.executable(command[1]) ~= 1 then
       Log:debug(string.format("[%q] is either not installed, missing from PATH, or not executable.", server_name))
@@ -92,7 +92,7 @@ end
 ---@param server_name string name of the language server
 ---@param user_config table? when available it will take predence over any default configurations
 function M.setup(server_name, user_config)
-  require("util").writeFile(nil,server_name)
+  require("util").writeFile(nil, server_name)
   vim.validate { name = { server_name, "string" } }
   user_config = user_config or {}
 
@@ -113,7 +113,7 @@ function M.setup(server_name, user_config)
   local should_auto_install = function(name)
     local installer_settings = lsp_config.installer.setup
     return installer_settings.automatic_installation
-      and not vim.tbl_contains(installer_settings.automatic_installation.exclude, name)
+        and not vim.tbl_contains(installer_settings.automatic_installation.exclude, name)
   end
 
   if not registry.is_installed(pkg_name) then
