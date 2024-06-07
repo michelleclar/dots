@@ -44,7 +44,7 @@ local config = {
     "-Dlog.level=ALL",
     "-javaagent:" .. mason_path .. "/packages/jdtls/lombok.jar",
     "-Xms1g",
-    "-Xmx2g",
+    "-Xmx1g",
     "--add-modules=ALL-SYSTEM",
     "--add-opens",
     "java.base/java.util=ALL-UNNAMED",
