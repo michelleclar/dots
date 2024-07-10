@@ -117,6 +117,11 @@ return {
         end,
         "Show line diagnostics",
       },
+      ["gj"] = { "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", "goto_next" }
+    },
+    ["gk"] = {
+      "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>",
+      "Prev Diagnostic",
     },
     insert_mode = {},
     visual_mode = {},
