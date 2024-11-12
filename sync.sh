@@ -40,6 +40,7 @@ menu(){
   echo "[12]:sync .vimrc"
   echo "[13]:sync .zimrc"
   echo "[14]:sync .ideavimrc"
+  echo "[15]:sync lvim"
   echo "===================="
 }
 menu
@@ -59,6 +60,7 @@ case $num in
   12) sync "~/.vimrc" ".vimrc";;
   13) sync "~/.zimrc" ".zimrc";;
   14) sync "~/.ideavimrc" ".ideavimrc";;
+  15) sync "~/.config/lvim" "lvim";;
   q) echo "quit" ;;
   *) echo "Invalid option" ;;
 esac;
