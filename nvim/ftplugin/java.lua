@@ -89,10 +89,10 @@ local config = {
             name = "JavaSE-17",
             path = home .. "/.sdkman/candidates/java/17.0.9-tem",
           },
-          -- {
-          --   name = "JavaSE-21",
-          --   path = home .. "/.sdkman/candidates/java/21.0.2-tem",
-          -- },
+          {
+            name = "JavaSE-21",
+            path = home .. "/.sdkman/candidates/java/21.0.2-tem",
+          },
         },
       },
       maven = {
